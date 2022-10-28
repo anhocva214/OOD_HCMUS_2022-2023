@@ -1,0 +1,103 @@
+* {
+      margin: 0;
+      padding: 0;
+}
+
+body {
+      position: relative;
+      width: 1440px;
+      height: 900px;
+      background: #ffffff;
+}
+section {
+      .left-content {
+            position: absolute;
+            width: 765px;
+            height: 900px;
+            left: 0;
+            top: 0;
+
+            .logo {
+                  position: absolute;
+                  left: 135px;
+                  top: 40px;
+            }
+            .sign-in {
+                  position: absolute;
+                  width: 404px;
+                  left: 135px;
+                  top: 199px;
+                  &-form {
+                        h1 {
+                              font-size: 30px;
+                        }
+                        p {
+                              font-style: normal;
+                              font-weight: 400;
+                              line-height: 20px;
+                              color: #78778b;
+                              margin-bottom: 5px;
+                        }
+                        .input-field {
+                              margin-top: 25px;
+                              p {
+                                    font-size: 16px;
+                                    color: black;
+                              }
+                              input {
+                                    padding-left: 20px;
+                                    width: 402px;
+                                    height: 48px;
+                                    border: 1px solid #463f3f;
+                                    border-radius: 10px;
+                              }
+                        }
+                        .forget-pass {
+                              float: right;
+                              margin: 15px 0;
+                              text-decoration: none;
+                              color: black;
+                              &:hover {
+                                    text-decoration: underline;
+                              }
+                        }
+
+                        .btn-log-in {
+                              display: flex;
+                              justify-content: center;
+                              align-items: center;
+                              width: 424px;
+                              height: 48px;
+                              background: #c8ee44;
+                              border-radius: 10px;
+                              font-weight: 600;
+                              &:hover {
+                                    background: #b1d824;
+                                    cursor: pointer;
+                              }
+                        }
+                        .sign-up-link {
+                              margin-top: 20px;
+                              display: flex;
+                              justify-content: center;
+                              color: #78778b;
+                              a {
+                                    text-decoration: none;
+                                    color: black;
+                                    font-weight: 500;
+                                    &:hover {
+                                          text-decoration: underline;
+                                    }
+                              }
+                        }
+                  }
+            }
+      }
+      .right-content {
+            position: absolute;
+            width: 675px;
+            height: 900px;
+            left: 765px;
+            top: 0px;
+      }
+}
