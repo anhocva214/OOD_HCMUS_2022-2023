@@ -1,0 +1,147 @@
+* {
+      box-sizing: border-box;
+}
+
+body {
+      margin: 0;
+      padding: 0;
+}
+
+.row {
+      display: flex;
+      flex-wrap: wrap;
+      nav {
+            flex: 15%;
+            height: 100vh;
+            background-color: #fafafa;
+            .logo {
+                  margin: 15px 0 0 20px;
+            }
+            ul {
+                  list-style-type: none;
+                  margin: 40px 10px;
+                  padding: 0;
+                  li {
+                        display: flex;
+                        justify-content: flex-start;
+                        align-items: center;
+                        margin: 10px 0;
+                        padding-left: 20px;
+                        a {
+                              display: block;
+                              color: #929eae;
+                              text-decoration: none;
+                              font-weight: 600;
+                              padding: 10px 16px;
+                        }
+                        &:hover {
+                              cursor: pointer;
+                        }
+                  }
+                  .active {
+                        background-color: #c8ee44;
+                        border-radius: 8px;
+                        a {
+                              color: #1b212d;
+                        }
+                  }
+            }
+      }
+
+      section {
+            flex: 85%;
+            padding: 30px;
+            .content {
+                  padding: 40px 100px 60px 40px;
+                  .change {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        a {
+                              text-decoration: none;
+                              color: #29a073;
+                              font-weight: 600;
+                              &:hover {
+                                    text-decoration: underline;
+                                    color: rgb(153, 255, 0);
+                              }
+                        }
+                  }
+                  .input-field {
+                        display: flex;
+                        flex-direction: column;
+                        .first-item,
+                        .second-item,
+                        .fourth-item {
+                              display: flex;
+                              flex-wrap: wrap;
+                              justify-content: space-between;
+                              margin: 15px 0;
+                              .name {
+                                    width: 50%;
+                                    input {
+                                          width: 90%;
+                                          border-radius: 8px;
+                                          padding: 10px;
+                                    }
+                              }
+                              .sex {
+                                    width: 50%;
+                                    select {
+                                          float: right;
+                                          width: 100%;
+                                          border-radius: 8px;
+                                          padding: 10px;
+                                    }
+                              }
+                              .birthday {
+                                    width: 50%;
+                                    input {
+                                          width: 90%;
+                                          border-radius: 8px;
+                                          padding: 10px;
+                                    }
+                              }
+                              .phone {
+                                    width: 50%;
+                                    input {
+                                          width: 95%;
+                                          border-radius: 8px;
+                                          padding: 10px;
+                                    }
+                              }
+                              .pass {
+                                    width: 50%;
+                                    input {
+                                          width: 90%;
+                                          border-radius: 8px;
+                                          padding: 10px;
+                                    }
+                              }
+                              .new-pass {
+                                    width: 50%;
+                                    input {
+                                          width: 95%;
+                                          border-radius: 8px;
+                                          padding: 10px;
+                                    }
+                              }
+                              // input,
+                              // select {
+                              //       border-radius: 8px;
+                              //       padding: 10px;
+                              //       width: 50%;
+                              // }
+                        }
+                        .third-item {
+                              width: 100%;
+                              input {
+                                    width: 97%;
+                                    border-radius: 8px;
+                                    padding: 10px;
+                              }
+                        }
+                  }
+            }
+      }
+}

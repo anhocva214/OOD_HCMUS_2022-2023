@@ -1,0 +1,139 @@
+body {
+      margin: 0;
+      padding: 0;
+}
+
+.row {
+      display: flex;
+      flex-wrap: wrap;
+      nav {
+            flex: 15%;
+            height: 100vh;
+            background-color: #fafafa;
+            .logo {
+                  margin: 15px 0 0 20px;
+            }
+            ul {
+                  list-style-type: none;
+                  margin: 40px 10px;
+                  padding: 0;
+                  li {
+                        display: flex;
+                        justify-content: flex-start;
+                        align-items: center;
+                        margin: 10px 0;
+                        padding-left: 20px;
+                        a {
+                              display: block;
+                              color: #929eae;
+                              text-decoration: none;
+                              font-weight: 600;
+                              padding: 10px 16px;
+                        }
+                        &:hover {
+                              cursor: pointer;
+                        }
+                  }
+                  .active {
+                        background-color: #c8ee44;
+                        border-radius: 8px;
+                        a {
+                              color: #1b212d;
+                        }
+                  }
+            }
+      }
+
+      section {
+            flex: 80%;
+            display: flex;
+            flex-wrap: wrap;
+            padding: 30px;
+            .left-wrap {
+                  display: flex;
+                  width: 80%;
+                  flex-direction: column;
+                  .general {
+                        display: flex;
+                        flex-wrap: wrap;
+                        justify-content: center;
+                        h1 {
+                              flex: 100%;
+                        }
+                        .Surplus,
+                        .Expense,
+                        .Income {
+                              background-color: #f8f8f8;
+                              display: flex;
+                              flex-wrap: wrap;
+                              justify-content: space-between;
+                              flex: 25%;
+                              // margin-left: 5%;
+                              border-radius: 10px;
+                              .surplus-img,
+                              .expense-img,
+                              .income-img {
+                                    display: flex;
+                                    justify-content: center;
+                                    align-items: center;
+                                    flex: 30%;
+                                    img {
+                                          background-color: #ebe8e8;
+                                          border-radius: 50px;
+                                          padding: 10px;
+                                    }
+                              }
+                              &:hover {
+                                    background-color: #363a3f;
+                                    color: white;
+                              }
+                              .detail {
+                                    flex: 70%;
+                                    .surplus-value,
+                                    .expense-value,
+                                    .income-value {
+                                          font-size: 1.5rem;
+                                          font-weight: 600;
+                                    }
+                              }
+                        }
+                  }
+
+                  .recent {
+                        border: 1px solid #f5f5f5;
+                        border-radius: 10px;
+                        padding: 15px;
+                        .heading {
+                              display: flex;
+                              justify-content: space-between;
+                              align-items: center;
+                        }
+                        .tables {
+                              table {
+                                    width: 100%;
+                                    td {
+                                          border-bottom: 1px solid #f5f5f5;
+                                          padding: 10px 0;
+                                    }
+                                    tr {
+                                          border: 1px solid #f5f5f5;
+                                    }
+                              }
+                        }
+                  }
+            }
+            .right-wrap {
+                  width: 15%;
+                  display: flex;
+                  flex-wrap: wrap;
+                  padding: 15px;
+                  .cal {
+                        flex: 25%;
+                        padding: 15px;
+                        margin: 10px;
+                        border: 1px solid #fafafa;
+                        border-radius: 15px;
+                  }
+            }
+      }
+}

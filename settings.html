@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Setting</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="./settings.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="row">
+      <nav>
+        <a href="./dashboard.html">
+          <img class="logo" src="./assets/Logo.png" alt="monoleak-logo" />
+        </a>
+        <ul>
+          <li>
+            <img src="./assets/dashboard-icon.png" alt="dashboard-icon" />
+            <a href="./dashboard.html"> Tổng quan </a>
+          </li>
+          <li>
+            <img src="./assets/giaodich-icon.png" alt="giaodich-icon" />
+            <a href="./transactions.html"> Giao dịch </a>
+          </li>
+          <li class="active">
+            <img src="./assets/setting.png" alt="caidat-icon" />
+            <a href="./settings.html"> Cài đặt </a>
+          </li>
+        </ul>
+      </nav>
+      <section>
+        <h1 class="title">Cài đặt</h1>
+        <div class="content">
+          <div class="acc-info">
+            <h3>Thông tin tài khoản</h3>
+            <p>Cập nhập thông tin của bạn</p>
+          </div>
+          <div class="change">
+            <h3>Thông tin cá nhân</h3>
+            <a href="#">Chỉnh Sửa</a>
+          </div>
+          <form class="input-field">
+            <div class="first-item">
+              <div class="name">
+                <p>Họ và tên</p>
+                <input type="text" placeholder="Họ và tên" />
+              </div>
+              <div class="sex">
+                <p>Giới tính</p>
+                <select name="cars" id="cars">
+                  <option value="volvo">Nam</option>
+                  <option value="saab">Nữ</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="second-item">
+              <div class="birthday">
+                <p>Ngày sinh nhật</p>
+                <input type="date" />
+              </div>
+              <div class="phone">
+                <p>Số điện thoại</p>
+                <input type="text" placeholder="84123456" />
+              </div>
+            </div>
+
+            <div class="third-item">
+              <div class="mail">
+                <p>Email</p>
+                <input type="email" placeholder="abc@gmail.com" />
+              </div>
+            </div>
+
+            <div class="fourth-item">
+              <div class="pass">
+                <p>Mật khẩu mới</p>
+                <input type="password" placeholder="..." />
+              </div>
+              <div class="new-pass">
+                <p>Nhập lại mật khẩu mới</p>
+                <input type="password" placeholder="..." />
+              </div>
+            </div>
+          </form>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>

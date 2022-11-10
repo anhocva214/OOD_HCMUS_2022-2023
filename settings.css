@@ -1,0 +1,164 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+.row nav {
+  flex: 15%;
+  height: 100vh;
+  background-color: #fafafa;
+}
+.row nav .logo {
+  margin: 15px 0 0 20px;
+}
+.row nav ul {
+  list-style-type: none;
+  margin: 40px 10px;
+  padding: 0;
+}
+.row nav ul li {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 10px 0;
+  padding-left: 20px;
+}
+.row nav ul li a {
+  display: block;
+  color: #929eae;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 10px 16px;
+}
+.row nav ul li:hover {
+  cursor: pointer;
+}
+.row nav ul .active {
+  background-color: #c8ee44;
+  border-radius: 8px;
+}
+.row nav ul .active a {
+  color: #1b212d;
+}
+.row section {
+  flex: 85%;
+  padding: 30px;
+}
+.row section .content {
+  padding: 40px 100px 60px 40px;
+}
+.row section .content .change {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.row section .content .change a {
+  text-decoration: none;
+  color: #29a073;
+  font-weight: 600;
+}
+.row section .content .change a:hover {
+  text-decoration: underline;
+  color: rgb(153, 255, 0);
+}
+.row section .content .input-field {
+  display: flex;
+  flex-direction: column;
+}
+.row section .content .input-field .first-item,
+.row section .content .input-field .second-item,
+.row section .content .input-field .fourth-item {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 15px 0;
+}
+.row section .content .input-field .first-item .name,
+.row section .content .input-field .second-item .name,
+.row section .content .input-field .fourth-item .name {
+  width: 50%;
+}
+.row section .content .input-field .first-item .name input,
+.row section .content .input-field .second-item .name input,
+.row section .content .input-field .fourth-item .name input {
+  width: 90%;
+  border-radius: 8px;
+  padding: 10px;
+}
+.row section .content .input-field .first-item .sex,
+.row section .content .input-field .second-item .sex,
+.row section .content .input-field .fourth-item .sex {
+  width: 50%;
+}
+.row section .content .input-field .first-item .sex select,
+.row section .content .input-field .second-item .sex select,
+.row section .content .input-field .fourth-item .sex select {
+  float: right;
+  width: 100%;
+  border-radius: 8px;
+  padding: 10px;
+}
+.row section .content .input-field .first-item .birthday,
+.row section .content .input-field .second-item .birthday,
+.row section .content .input-field .fourth-item .birthday {
+  width: 50%;
+}
+.row section .content .input-field .first-item .birthday input,
+.row section .content .input-field .second-item .birthday input,
+.row section .content .input-field .fourth-item .birthday input {
+  width: 90%;
+  border-radius: 8px;
+  padding: 10px;
+}
+.row section .content .input-field .first-item .phone,
+.row section .content .input-field .second-item .phone,
+.row section .content .input-field .fourth-item .phone {
+  width: 50%;
+}
+.row section .content .input-field .first-item .phone input,
+.row section .content .input-field .second-item .phone input,
+.row section .content .input-field .fourth-item .phone input {
+  width: 95%;
+  border-radius: 8px;
+  padding: 10px;
+}
+.row section .content .input-field .first-item .pass,
+.row section .content .input-field .second-item .pass,
+.row section .content .input-field .fourth-item .pass {
+  width: 50%;
+}
+.row section .content .input-field .first-item .pass input,
+.row section .content .input-field .second-item .pass input,
+.row section .content .input-field .fourth-item .pass input {
+  width: 90%;
+  border-radius: 8px;
+  padding: 10px;
+}
+.row section .content .input-field .first-item .new-pass,
+.row section .content .input-field .second-item .new-pass,
+.row section .content .input-field .fourth-item .new-pass {
+  width: 50%;
+}
+.row section .content .input-field .first-item .new-pass input,
+.row section .content .input-field .second-item .new-pass input,
+.row section .content .input-field .fourth-item .new-pass input {
+  width: 95%;
+  border-radius: 8px;
+  padding: 10px;
+}
+.row section .content .input-field .third-item {
+  width: 100%;
+}
+.row section .content .input-field .third-item input {
+  width: 97%;
+  border-radius: 8px;
+  padding: 10px;
+}/*# sourceMappingURL=settings.css.map */
