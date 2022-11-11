@@ -1,40 +1,22 @@
-* {
+body {
       margin: 0;
       padding: 0;
 }
 
-body {
-      position: relative;
-      width: 1440px;
-      height: 900px;
-      background: #ffffff;
-}
 section {
+      display: flex;
+      justify-content: center;
       .left-content {
-            position: absolute;
-            width: 765px;
-            height: 900px;
-            left: 0;
-            top: 0;
-
+            padding: 30px 80px;
             .logo {
-                  position: absolute;
-                  left: 135px;
-                  top: 40px;
+                  margin-bottom: 100px;
             }
             .sign-in {
-                  position: absolute;
-                  width: 404px;
-                  left: 135px;
-                  top: 199px;
                   &-form {
                         h1 {
                               font-size: 30px;
                         }
                         p {
-                              font-style: normal;
-                              font-weight: 400;
-                              line-height: 20px;
                               color: #78778b;
                               margin-bottom: 5px;
                         }
@@ -53,7 +35,8 @@ section {
                               }
                         }
                         .forget-pass {
-                              float: right;
+                              display: flex;
+                              justify-content: flex-end;
                               margin: 15px 0;
                               text-decoration: none;
                               color: black;
@@ -71,6 +54,7 @@ section {
                               background: #c8ee44;
                               border-radius: 10px;
                               font-weight: 600;
+                              border: none;
                               &:hover {
                                     background: #b1d824;
                                     cursor: pointer;
@@ -94,10 +78,9 @@ section {
             }
       }
       .right-content {
-            position: absolute;
-            width: 675px;
-            height: 900px;
-            left: 765px;
-            top: 0px;
+            img {
+                  width: 100%;
+                  object-fit: cover;
+            }
       }
 }

@@ -1,40 +1,22 @@
-* {
+body {
   margin: 0;
   padding: 0;
 }
 
-body {
-  position: relative;
-  width: 1440px;
-  height: 900px;
-  background: #ffffff;
+section {
+  display: flex;
+  justify-content: center;
 }
-
 section .left-content {
-  position: absolute;
-  width: 765px;
-  height: 900px;
-  left: 0;
-  top: 0;
+  padding: 30px 80px;
 }
 section .left-content .logo {
-  position: absolute;
-  left: 135px;
-  top: 40px;
-}
-section .left-content .sign-up {
-  position: absolute;
-  width: 404px;
-  left: 135px;
-  top: 199px;
+  margin-bottom: 100px;
 }
 section .left-content .sign-up-form h1 {
   font-size: 30px;
 }
 section .left-content .sign-up-form p {
-  font-style: normal;
-  font-weight: 400;
-  line-height: 20px;
   color: #78778b;
   margin-bottom: 5px;
 }
@@ -52,7 +34,7 @@ section .left-content .sign-up-form .input-field input {
   border: 1px solid #272222;
   border-radius: 10px;
 }
-section .left-content .sign-up-form .btn-log-in {
+section .left-content .sign-up-form .btn-sign-up {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -66,7 +48,7 @@ section .left-content .sign-up-form .btn-log-in {
   border-radius: 10px;
   border: none;
 }
-section .left-content .sign-up-form .btn-log-in:hover {
+section .left-content .sign-up-form .btn-sign-up:hover {
   background: #b1d824;
   cursor: pointer;
 }
@@ -84,10 +66,8 @@ section .left-content .sign-up-form .sign-in-link a {
 section .left-content .sign-up-form .sign-in-link a:hover {
   text-decoration: underline;
 }
-section .right-content {
-  position: absolute;
-  width: 675px;
-  height: 900px;
-  left: 765px;
-  top: 0px;
+section .right-content img {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }/*# sourceMappingURL=sign-up.css.map */
