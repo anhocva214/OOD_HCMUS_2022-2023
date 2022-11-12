@@ -1,18 +1,15 @@
-* {
-      box-sizing: border-box;
-}
-
 body {
       margin: 0;
       padding: 0;
+      box-sizing: border-box; 
 }
 
 .row {
       display: flex;
-      flex-wrap: wrap;
+      flex-wrap: nowrap;
       nav {
             flex: 15%;
-            height: 100vh;
+            min-height: 1000px;
             background-color: #fafafa;
             .logo {
                   margin: 15px 0 0 20px;
@@ -48,9 +45,9 @@ body {
             }
       }
 
-      section {
+      .setting-wrapper {
             flex: 85%;
-            padding: 30px;
+            padding: 40px;
             .content {
                   padding: 40px 100px 60px 40px;
                   .change {
@@ -83,6 +80,8 @@ body {
                                           width: 90%;
                                           border-radius: 8px;
                                           padding: 10px;
+                                          color: #78778B;
+                                          font-weight: 400;
                                     }
                               }
                               .sex {

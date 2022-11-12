@@ -27,7 +27,7 @@
           </li>
         </ul>
       </nav>
-      <section>
+      <section class="setting-wrapper">
         <h1 class="title">Cài đặt</h1>
         <div class="content">
           <div class="acc-info">
@@ -42,13 +42,13 @@
             <div class="first-item">
               <div class="name">
                 <p>Họ và tên</p>
-                <input type="text" placeholder="Họ và tên" />
+                <input type="text" placeholder="Mafulzul Islam" readonly />
               </div>
               <div class="sex">
                 <p>Giới tính</p>
                 <select name="cars" id="cars">
-                  <option value="volvo">Nam</option>
-                  <option value="saab">Nữ</option>
+                  <option value="nam" selected>Nam</option>
+                  <option value="nu" disabled="">Nữ</option>
                 </select>
               </div>
             </div>
@@ -56,29 +56,29 @@
             <div class="second-item">
               <div class="birthday">
                 <p>Ngày sinh nhật</p>
-                <input type="date" />
+                <input type="date" placehoder="27/8/2998" readonly />
               </div>
               <div class="phone">
                 <p>Số điện thoại</p>
-                <input type="text" placeholder="84123456" />
+                <input type="text" placeholder="+123456789" readonly />
               </div>
             </div>
 
             <div class="third-item">
               <div class="mail">
                 <p>Email</p>
-                <input type="email" placeholder="abc@gmail.com" />
+                <input type="email" placeholder="abc@gmail.com" readonly />
               </div>
             </div>
 
             <div class="fourth-item">
               <div class="pass">
                 <p>Mật khẩu mới</p>
-                <input type="password" placeholder="..." />
+                <input type="password" placeholder="..." readonly />
               </div>
               <div class="new-pass">
                 <p>Nhập lại mật khẩu mới</p>
-                <input type="password" placeholder="..." />
+                <input type="password" placeholder="..." readonly />
               </div>
             </div>
           </form>

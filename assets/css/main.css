@@ -1,15 +1,16 @@
 body {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 .row {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
 }
 .row nav {
   flex: 15%;
-  height: 100vh;
+  min-height: 1000px;
   background-color: #fafafa;
 }
 .row nav .logo {
@@ -44,135 +45,152 @@ body {
 .row nav ul .active a {
   color: #1b212d;
 }
-.row section {
-  flex: 80%;
+.row .dashboard-wrapper {
+  flex: 85%;
+  max-width: 85%;
   display: flex;
-  flex-wrap: wrap;
-  padding: 30px;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  padding: 40px;
 }
-.row section .left-wrap {
+.row .dashboard-wrapper .left-wrap {
+  flex: 70%;
+  max-width: 70%;
   display: flex;
-  width: 80%;
   flex-direction: column;
 }
-.row section .left-wrap .general {
+.row .dashboard-wrapper .left-wrap .general {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
-.row section .left-wrap .general h1 {
+.row .dashboard-wrapper .left-wrap .general h1 {
   flex: 100%;
 }
-.row section .left-wrap .general .Surplus,
-.row section .left-wrap .general .Expense,
-.row section .left-wrap .general .Income {
+.row .dashboard-wrapper .left-wrap .general .Surplus,
+.row .dashboard-wrapper .left-wrap .general .Expense,
+.row .dashboard-wrapper .left-wrap .general .Income {
   background-color: #f8f8f8;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   flex: 25%;
+  margin-right: 5%;
   border-radius: 10px;
+  padding: 5px;
 }
-.row section .left-wrap .general .Surplus .surplus-img,
-.row section .left-wrap .general .Surplus .expense-img,
-.row section .left-wrap .general .Surplus .income-img,
-.row section .left-wrap .general .Expense .surplus-img,
-.row section .left-wrap .general .Expense .expense-img,
-.row section .left-wrap .general .Expense .income-img,
-.row section .left-wrap .general .Income .surplus-img,
-.row section .left-wrap .general .Income .expense-img,
-.row section .left-wrap .general .Income .income-img {
+.row .dashboard-wrapper .left-wrap .general .Surplus .surplus-img,
+.row .dashboard-wrapper .left-wrap .general .Surplus .expense-img,
+.row .dashboard-wrapper .left-wrap .general .Surplus .income-img,
+.row .dashboard-wrapper .left-wrap .general .Expense .surplus-img,
+.row .dashboard-wrapper .left-wrap .general .Expense .expense-img,
+.row .dashboard-wrapper .left-wrap .general .Expense .income-img,
+.row .dashboard-wrapper .left-wrap .general .Income .surplus-img,
+.row .dashboard-wrapper .left-wrap .general .Income .expense-img,
+.row .dashboard-wrapper .left-wrap .general .Income .income-img {
   display: flex;
   justify-content: center;
   align-items: center;
   flex: 30%;
 }
-.row section .left-wrap .general .Surplus .surplus-img img,
-.row section .left-wrap .general .Surplus .expense-img img,
-.row section .left-wrap .general .Surplus .income-img img,
-.row section .left-wrap .general .Expense .surplus-img img,
-.row section .left-wrap .general .Expense .expense-img img,
-.row section .left-wrap .general .Expense .income-img img,
-.row section .left-wrap .general .Income .surplus-img img,
-.row section .left-wrap .general .Income .expense-img img,
-.row section .left-wrap .general .Income .income-img img {
+.row .dashboard-wrapper .left-wrap .general .Surplus .surplus-img img,
+.row .dashboard-wrapper .left-wrap .general .Surplus .expense-img img,
+.row .dashboard-wrapper .left-wrap .general .Surplus .income-img img,
+.row .dashboard-wrapper .left-wrap .general .Expense .surplus-img img,
+.row .dashboard-wrapper .left-wrap .general .Expense .expense-img img,
+.row .dashboard-wrapper .left-wrap .general .Expense .income-img img,
+.row .dashboard-wrapper .left-wrap .general .Income .surplus-img img,
+.row .dashboard-wrapper .left-wrap .general .Income .expense-img img,
+.row .dashboard-wrapper .left-wrap .general .Income .income-img img {
   background-color: #ebe8e8;
   border-radius: 50px;
   padding: 10px;
 }
-.row section .left-wrap .general .Surplus:hover,
-.row section .left-wrap .general .Expense:hover,
-.row section .left-wrap .general .Income:hover {
+.row .dashboard-wrapper .left-wrap .general .Surplus:hover,
+.row .dashboard-wrapper .left-wrap .general .Expense:hover,
+.row .dashboard-wrapper .left-wrap .general .Income:hover {
   background-color: #363a3f;
   color: white;
 }
-.row section .left-wrap .general .Surplus .detail,
-.row section .left-wrap .general .Expense .detail,
-.row section .left-wrap .general .Income .detail {
+.row .dashboard-wrapper .left-wrap .general .Surplus .detail,
+.row .dashboard-wrapper .left-wrap .general .Expense .detail,
+.row .dashboard-wrapper .left-wrap .general .Income .detail {
   flex: 70%;
 }
-.row section .left-wrap .general .Surplus .detail .surplus-value,
-.row section .left-wrap .general .Surplus .detail .expense-value,
-.row section .left-wrap .general .Surplus .detail .income-value,
-.row section .left-wrap .general .Expense .detail .surplus-value,
-.row section .left-wrap .general .Expense .detail .expense-value,
-.row section .left-wrap .general .Expense .detail .income-value,
-.row section .left-wrap .general .Income .detail .surplus-value,
-.row section .left-wrap .general .Income .detail .expense-value,
-.row section .left-wrap .general .Income .detail .income-value {
+.row .dashboard-wrapper .left-wrap .general .Surplus .detail .surplus-value,
+.row .dashboard-wrapper .left-wrap .general .Surplus .detail .expense-value,
+.row .dashboard-wrapper .left-wrap .general .Surplus .detail .income-value,
+.row .dashboard-wrapper .left-wrap .general .Expense .detail .surplus-value,
+.row .dashboard-wrapper .left-wrap .general .Expense .detail .expense-value,
+.row .dashboard-wrapper .left-wrap .general .Expense .detail .income-value,
+.row .dashboard-wrapper .left-wrap .general .Income .detail .surplus-value,
+.row .dashboard-wrapper .left-wrap .general .Income .detail .expense-value,
+.row .dashboard-wrapper .left-wrap .general .Income .detail .income-value {
   font-size: 1.5rem;
   font-weight: 600;
 }
-.row section .left-wrap .recent {
+.row .dashboard-wrapper .left-wrap .recent {
   border: 1px solid #f5f5f5;
   border-radius: 10px;
   padding: 15px;
 }
-.row section .left-wrap .recent .heading {
+.row .dashboard-wrapper .left-wrap .recent-heading {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.row section .left-wrap .recent .tables table {
+.row .dashboard-wrapper .left-wrap .recent-heading a {
+  color: #29a073;
+  font-weight: 600;
+  text-decoration: none;
+}
+.row .dashboard-wrapper .left-wrap .recent-heading a:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+.row .dashboard-wrapper .left-wrap .recent .tables table {
   width: 100%;
 }
-.row section .left-wrap .recent .tables table td {
+.row .dashboard-wrapper .left-wrap .recent .tables table tr {
+  border: 1px solid #f5f5f5;
+}
+.row .dashboard-wrapper .left-wrap .recent .tables table tr td {
   border-bottom: 1px solid #f5f5f5;
   padding: 10px 0;
 }
-.row section .left-wrap .recent .tables table tr {
-  border: 1px solid #f5f5f5;
+.row .dashboard-wrapper .left-wrap .recent .tables table tr th {
+  color: #929eae;
 }
-.row section .right-wrap {
-  width: 15%;
-  display: flex;
-  flex-wrap: wrap;
+.row .dashboard-wrapper .right-wrap {
+  width: 30%;
   padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
-.row section .right-wrap .cal {
-  flex: 25%;
+.row .dashboard-wrapper .right-wrap .calculator {
+  background-color: #fafafa;
+  flex: 50%;
   padding: 15px;
   margin: 10px;
-  border: 1px solid #fafafa;
+  border: 1px solid #3d3636;
   border-radius: 15px;
-}
-
-* {
-  box-sizing: border-box;
+  height: 100px;
 }
 
 body {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 .row {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
 }
 .row nav {
   flex: 15%;
-  height: 100vh;
+  min-height: 1000px;
   background-color: #fafafa;
 }
 .row nav .logo {
@@ -207,137 +225,136 @@ body {
 .row nav ul .active a {
   color: #1b212d;
 }
-.row section {
+.row .setting-wrapper {
   flex: 85%;
-  padding: 30px;
+  padding: 40px;
 }
-.row section .content {
+.row .setting-wrapper .content {
   padding: 40px 100px 60px 40px;
 }
-.row section .content .change {
+.row .setting-wrapper .content .change {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.row section .content .change a {
+.row .setting-wrapper .content .change a {
   text-decoration: none;
   color: #29a073;
   font-weight: 600;
 }
-.row section .content .change a:hover {
+.row .setting-wrapper .content .change a:hover {
   text-decoration: underline;
   color: rgb(153, 255, 0);
 }
-.row section .content .input-field {
+.row .setting-wrapper .content .input-field {
   display: flex;
   flex-direction: column;
 }
-.row section .content .input-field .first-item,
-.row section .content .input-field .second-item,
-.row section .content .input-field .fourth-item {
+.row .setting-wrapper .content .input-field .first-item,
+.row .setting-wrapper .content .input-field .second-item,
+.row .setting-wrapper .content .input-field .fourth-item {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   margin: 15px 0;
 }
-.row section .content .input-field .first-item .name,
-.row section .content .input-field .second-item .name,
-.row section .content .input-field .fourth-item .name {
+.row .setting-wrapper .content .input-field .first-item .name,
+.row .setting-wrapper .content .input-field .second-item .name,
+.row .setting-wrapper .content .input-field .fourth-item .name {
   width: 50%;
 }
-.row section .content .input-field .first-item .name input,
-.row section .content .input-field .second-item .name input,
-.row section .content .input-field .fourth-item .name input {
+.row .setting-wrapper .content .input-field .first-item .name input,
+.row .setting-wrapper .content .input-field .second-item .name input,
+.row .setting-wrapper .content .input-field .fourth-item .name input {
   width: 90%;
   border-radius: 8px;
   padding: 10px;
+  color: #78778B;
+  font-weight: 400;
 }
-.row section .content .input-field .first-item .sex,
-.row section .content .input-field .second-item .sex,
-.row section .content .input-field .fourth-item .sex {
+.row .setting-wrapper .content .input-field .first-item .sex,
+.row .setting-wrapper .content .input-field .second-item .sex,
+.row .setting-wrapper .content .input-field .fourth-item .sex {
   width: 50%;
 }
-.row section .content .input-field .first-item .sex select,
-.row section .content .input-field .second-item .sex select,
-.row section .content .input-field .fourth-item .sex select {
+.row .setting-wrapper .content .input-field .first-item .sex select,
+.row .setting-wrapper .content .input-field .second-item .sex select,
+.row .setting-wrapper .content .input-field .fourth-item .sex select {
   float: right;
   width: 100%;
   border-radius: 8px;
   padding: 10px;
 }
-.row section .content .input-field .first-item .birthday,
-.row section .content .input-field .second-item .birthday,
-.row section .content .input-field .fourth-item .birthday {
+.row .setting-wrapper .content .input-field .first-item .birthday,
+.row .setting-wrapper .content .input-field .second-item .birthday,
+.row .setting-wrapper .content .input-field .fourth-item .birthday {
   width: 50%;
 }
-.row section .content .input-field .first-item .birthday input,
-.row section .content .input-field .second-item .birthday input,
-.row section .content .input-field .fourth-item .birthday input {
+.row .setting-wrapper .content .input-field .first-item .birthday input,
+.row .setting-wrapper .content .input-field .second-item .birthday input,
+.row .setting-wrapper .content .input-field .fourth-item .birthday input {
   width: 90%;
   border-radius: 8px;
   padding: 10px;
 }
-.row section .content .input-field .first-item .phone,
-.row section .content .input-field .second-item .phone,
-.row section .content .input-field .fourth-item .phone {
+.row .setting-wrapper .content .input-field .first-item .phone,
+.row .setting-wrapper .content .input-field .second-item .phone,
+.row .setting-wrapper .content .input-field .fourth-item .phone {
   width: 50%;
 }
-.row section .content .input-field .first-item .phone input,
-.row section .content .input-field .second-item .phone input,
-.row section .content .input-field .fourth-item .phone input {
+.row .setting-wrapper .content .input-field .first-item .phone input,
+.row .setting-wrapper .content .input-field .second-item .phone input,
+.row .setting-wrapper .content .input-field .fourth-item .phone input {
   width: 95%;
   border-radius: 8px;
   padding: 10px;
 }
-.row section .content .input-field .first-item .pass,
-.row section .content .input-field .second-item .pass,
-.row section .content .input-field .fourth-item .pass {
+.row .setting-wrapper .content .input-field .first-item .pass,
+.row .setting-wrapper .content .input-field .second-item .pass,
+.row .setting-wrapper .content .input-field .fourth-item .pass {
   width: 50%;
 }
-.row section .content .input-field .first-item .pass input,
-.row section .content .input-field .second-item .pass input,
-.row section .content .input-field .fourth-item .pass input {
+.row .setting-wrapper .content .input-field .first-item .pass input,
+.row .setting-wrapper .content .input-field .second-item .pass input,
+.row .setting-wrapper .content .input-field .fourth-item .pass input {
   width: 90%;
   border-radius: 8px;
   padding: 10px;
 }
-.row section .content .input-field .first-item .new-pass,
-.row section .content .input-field .second-item .new-pass,
-.row section .content .input-field .fourth-item .new-pass {
+.row .setting-wrapper .content .input-field .first-item .new-pass,
+.row .setting-wrapper .content .input-field .second-item .new-pass,
+.row .setting-wrapper .content .input-field .fourth-item .new-pass {
   width: 50%;
 }
-.row section .content .input-field .first-item .new-pass input,
-.row section .content .input-field .second-item .new-pass input,
-.row section .content .input-field .fourth-item .new-pass input {
+.row .setting-wrapper .content .input-field .first-item .new-pass input,
+.row .setting-wrapper .content .input-field .second-item .new-pass input,
+.row .setting-wrapper .content .input-field .fourth-item .new-pass input {
   width: 95%;
   border-radius: 8px;
   padding: 10px;
 }
-.row section .content .input-field .third-item {
+.row .setting-wrapper .content .input-field .third-item {
   width: 100%;
 }
-.row section .content .input-field .third-item input {
+.row .setting-wrapper .content .input-field .third-item input {
   width: 97%;
   border-radius: 8px;
   padding: 10px;
 }
 
-* {
-  box-sizing: border-box;
-}
-
 body {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 .row {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
 }
 .row nav {
   flex: 15%;
-  height: 100vh;
+  min-height: 1000px;
   background-color: #fafafa;
 }
 .row nav .logo {
@@ -372,31 +389,32 @@ body {
 .row nav ul .active a {
   color: #1b212d;
 }
-.row section {
+.row .transaction-wrapper {
   flex: 85%;
-  padding: 30px;
-}
-.row section h1 {
-  flex: 100%;
-}
-.row section .search-box {
+  padding: 40px;
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
 }
-.row section .search-box input {
-  width: 75%;
+.row .transaction-wrapper h1 {
+  width: 100%;
+}
+.row .transaction-wrapper .search-box {
+  display: flex;
+  justify-content: space-between;
+}
+.row .transaction-wrapper .search-box input {
+  width: 70%;
   padding: 10px;
   border-radius: 15px;
   color: #929eae;
   background-color: #f8f8f8;
   border: none;
 }
-.row section .search-box button {
+.row .transaction-wrapper .search-box button {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  margin-left: 50px;
-  width: 15%;
+  width: 20%;
   border: 2px solid #000000;
   font-weight: 600;
   color: black;
@@ -405,27 +423,27 @@ body {
   border-radius: 8px;
   text-align: center;
 }
-.row section .search-box button:hover {
+.row .transaction-wrapper .search-box button:hover {
   cursor: pointer;
   background-color: #929eae;
 }
-.row section .all-recent-trans {
+.row .transaction-wrapper .all-recent-trans {
   margin-top: 20px;
   padding: 15px;
   border-radius: 10px;
   width: 100%;
 }
-.row section .all-recent-trans .tables table {
+.row .transaction-wrapper .all-recent-trans .tables table {
   width: 100%;
 }
-.row section .all-recent-trans .tables table tr {
+.row .transaction-wrapper .all-recent-trans .tables table tr {
   border: 1px solid #f5f5f5;
 }
-.row section .all-recent-trans .tables table tr td {
+.row .transaction-wrapper .all-recent-trans .tables table tr td {
   border-bottom: 1px solid #f5f5f5;
   padding: 15px 0;
 }
-.row section .all-recent-trans .tables table tr td button {
+.row .transaction-wrapper .all-recent-trans .tables table tr td button {
   border: 1px solid #78778b;
   padding: 15px 20px;
   margin-left: 40px;
@@ -433,10 +451,10 @@ body {
   border-radius: 8px;
   color: #78778b;
 }
-.row section .all-recent-trans .tables table tr td button:hover {
+.row .transaction-wrapper .all-recent-trans .tables table tr td button:hover {
   cursor: pointer;
   background-color: #929eae;
 }
-.row section .all-recent-trans .tables table tr th {
+.row .transaction-wrapper .all-recent-trans .tables table tr th {
   color: #929eae;
 }/*# sourceMappingURL=main.css.map */

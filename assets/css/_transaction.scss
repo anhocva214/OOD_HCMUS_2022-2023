@@ -1,18 +1,15 @@
-* {
-      box-sizing: border-box;
-}
-
 body {
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
 }
 
 .row {
       display: flex;
-      flex-wrap: wrap;
+      flex-wrap: nowrap;
       nav {
             flex: 15%;
-            height: 100vh;
+            min-height: 1000px;
             background-color: #fafafa;
             .logo {
                   margin: 15px 0 0 20px;
@@ -48,17 +45,19 @@ body {
             }
       }
 
-      section {
+      .transaction-wrapper {
             flex: 85%;
-            padding: 30px;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
             h1 {
-                  flex: 100%;
+                  width: 100%;
             }
             .search-box {
                   display: flex;
-                  flex-wrap: wrap;
+                  justify-content: space-between;
                   input {
-                        width: 75%;
+                        width: 70%;
                         padding: 10px;
                         border-radius: 15px;
                         color: #929eae;
@@ -69,8 +68,7 @@ body {
                         display: flex;
                         justify-content: space-evenly;
                         align-items: center;
-                        margin-left: 50px;
-                        width: 15%;
+                        width: 20%;
                         border: 2px solid #000000;
                         font-weight: 600;
                         color: black;
