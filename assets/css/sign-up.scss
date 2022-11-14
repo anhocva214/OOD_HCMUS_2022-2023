@@ -1,8 +1,3 @@
-body {
-      margin: 0;
-      padding: 0;
-}
-
 section {
       display: flex;
       justify-content: center;
@@ -28,7 +23,7 @@ section {
                               }
                               input {
                                     padding-left: 20px;
-                                    width: 402px;
+                                    width: 100%;
                                     height: 48px;
                                     border: 1px solid #272222;
                                     border-radius: 10px;

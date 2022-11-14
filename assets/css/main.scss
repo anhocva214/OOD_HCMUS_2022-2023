@@ -1,5 +1,16 @@
+@import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@600&family=Poppins&display=swap");
+@import "dashboard";
+@import "settings";
+@import "transaction";
 
+* {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+}
 
-@import 'dashboard';
-@import 'settings';
-@import 'transaction';
+body {
+      font-family: "Kumbh Sans", sans-serif;
+      width: 100vw;
+      height: 100vh;
+}
