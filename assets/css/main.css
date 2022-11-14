@@ -57,7 +57,7 @@
 .row .dashboard-wrapper .left-wrap .general {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-between;
 }
 .row .dashboard-wrapper .left-wrap .general h1 {
   width: 100%;
@@ -71,8 +71,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  flex: 25%;
-  margin-right: 5%;
+  width: 32%;
   border-radius: 10px;
   padding: 24px 20px;
 }
@@ -85,29 +84,53 @@
 .row .dashboard-wrapper .left-wrap .general .Income .surplus-img,
 .row .dashboard-wrapper .left-wrap .general .Income .expense-img,
 .row .dashboard-wrapper .left-wrap .general .Income .income-img {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   flex: 30%;
 }
-.row .dashboard-wrapper .left-wrap .general .Surplus .surplus-img img,
-.row .dashboard-wrapper .left-wrap .general .Surplus .expense-img img,
-.row .dashboard-wrapper .left-wrap .general .Surplus .income-img img,
-.row .dashboard-wrapper .left-wrap .general .Expense .surplus-img img,
-.row .dashboard-wrapper .left-wrap .general .Expense .expense-img img,
-.row .dashboard-wrapper .left-wrap .general .Expense .income-img img,
-.row .dashboard-wrapper .left-wrap .general .Income .surplus-img img,
-.row .dashboard-wrapper .left-wrap .general .Income .expense-img img,
-.row .dashboard-wrapper .left-wrap .general .Income .income-img img {
+.row .dashboard-wrapper .left-wrap .general .Surplus .surplus-img .offHover,
+.row .dashboard-wrapper .left-wrap .general .Surplus .expense-img .offHover,
+.row .dashboard-wrapper .left-wrap .general .Surplus .income-img .offHover,
+.row .dashboard-wrapper .left-wrap .general .Expense .surplus-img .offHover,
+.row .dashboard-wrapper .left-wrap .general .Expense .expense-img .offHover,
+.row .dashboard-wrapper .left-wrap .general .Expense .income-img .offHover,
+.row .dashboard-wrapper .left-wrap .general .Income .surplus-img .offHover,
+.row .dashboard-wrapper .left-wrap .general .Income .expense-img .offHover,
+.row .dashboard-wrapper .left-wrap .general .Income .income-img .offHover {
   background-color: #ebe8e8;
   border-radius: 50px;
   padding: 10px;
+}
+.row .dashboard-wrapper .left-wrap .general .Surplus .surplus-img .onHover,
+.row .dashboard-wrapper .left-wrap .general .Surplus .expense-img .onHover,
+.row .dashboard-wrapper .left-wrap .general .Surplus .income-img .onHover,
+.row .dashboard-wrapper .left-wrap .general .Expense .surplus-img .onHover,
+.row .dashboard-wrapper .left-wrap .general .Expense .expense-img .onHover,
+.row .dashboard-wrapper .left-wrap .general .Expense .income-img .onHover,
+.row .dashboard-wrapper .left-wrap .general .Income .surplus-img .onHover,
+.row .dashboard-wrapper .left-wrap .general .Income .expense-img .onHover,
+.row .dashboard-wrapper .left-wrap .general .Income .income-img .onHover {
+  display: none;
 }
 .row .dashboard-wrapper .left-wrap .general .Surplus:hover,
 .row .dashboard-wrapper .left-wrap .general .Expense:hover,
 .row .dashboard-wrapper .left-wrap .general .Income:hover {
   background-color: #363a3f;
   color: white;
+}
+.row .dashboard-wrapper .left-wrap .general .Surplus:hover .onHover,
+.row .dashboard-wrapper .left-wrap .general .Expense:hover .onHover,
+.row .dashboard-wrapper .left-wrap .general .Income:hover .onHover {
+  position: absolute;
+  display: inline;
+  background-color: #4e5257;
+}
+.row .dashboard-wrapper .left-wrap .general .Surplus:hover .offHover,
+.row .dashboard-wrapper .left-wrap .general .Expense:hover .offHover,
+.row .dashboard-wrapper .left-wrap .general .Income:hover .offHover {
+  background-color: #4e5257;
 }
 .row .dashboard-wrapper .left-wrap .general .Surplus .detail,
 .row .dashboard-wrapper .left-wrap .general .Expense .detail,
