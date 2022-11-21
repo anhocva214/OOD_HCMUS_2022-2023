@@ -1,0 +1,198 @@
+.row {
+      display: flex;
+      flex-wrap: nowrap;
+      nav {
+            flex: 15%;
+            min-height: 1000px;
+            background-color: #fafafa;
+            .logo {
+                  margin: 15px 0 0 20px;
+            }
+            ul {
+                  list-style-type: none;
+                  margin: 40px 10px;
+                  padding: 0;
+                  li {
+                        display: flex;
+                        justify-content: flex-start;
+                        align-items: center;
+                        margin: 10px 0;
+                        padding-left: 20px;
+                        a {
+                              display: block;
+                              color: #929eae;
+                              text-decoration: none;
+                              font-weight: 600;
+                              padding: 10px 16px;
+                        }
+                        &:hover {
+                              cursor: pointer;
+                        }
+                  }
+                  .active {
+                        background-color: #c8ee44;
+                        border-radius: 8px;
+                        a {
+                              color: #1b212d;
+                        }
+                  }
+            }
+      }
+
+      .dashboard-wrapper {
+            flex: 85%;
+            max-width: 85%;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            padding: 40px;
+            .left-wrap {
+                  flex: 70%;
+                  max-width: 70%;
+                  display: flex;
+                  flex-direction: column;
+                  .general {
+                        display: flex;
+                        flex-wrap: wrap;
+                        justify-content: space-between;
+                        h1 {
+                              width: 100%;
+                              font-size: 25px;
+                              margin-bottom: 25px;
+                        }
+                        .Surplus,
+                        .Expense,
+                        .Income {
+                              background-color: #f8f8f8;
+                              display: flex;
+                              flex-wrap: wrap;
+                              justify-content: space-between;
+                              width: 32%;
+                              border-radius: 10px;
+                              padding: 24px 20px;
+                              .surplus-img,
+                              .expense-img,
+                              .income-img {
+                                    position: relative;
+                                    display: flex;
+                                    justify-content: center;
+                                    align-items: center;
+                                    flex: 30%;
+                                    .offHover {
+                                          background-color: #ebe8e8;
+                                          border-radius: 50px;
+                                          padding: 10px;
+                                    }
+                                    .onHover {
+                                          display: none;
+                                    }
+                              }
+                              &:hover {
+                                    background-color: #363a3f;
+                                    color: white;
+                              }
+                              &:hover .onHover {
+                                    position: absolute;
+                                    display: inline;
+                                    background-color: #4e5257;
+                              }
+                              &:hover .offHover {
+                                    background-color: #4e5257;
+                              }
+
+                              .detail {
+                                    flex: 70%;
+                                    .surplus-value,
+                                    .expense-value,
+                                    .income-value {
+                                          font-size: 1.5rem;
+                                          font-weight: 600;
+                                    }
+                              }
+                        }
+                  }
+
+                  .charts {
+                        margin-top: 25px;
+                  }
+
+                  .recent {
+                        border: 1px solid #f5f5f5;
+                        border-radius: 10px;
+                        padding: 15px;
+                        margin-top: 25px;
+                        &-heading {
+                              display: flex;
+                              justify-content: space-between;
+                              align-items: center;
+                              margin-bottom: 20px;
+                              a {
+                                    color: #29a073;
+                                    font-weight: 600;
+                                    text-decoration: none;
+                                    &:hover {
+                                          cursor: pointer;
+                                          text-decoration: underline;
+                                    }
+                              }
+                        }
+                        .tables {
+                              table {
+                                    width: 100%;
+                                    tr {
+                                          border: 1px solid #f5f5f5;
+                                          td {
+                                                border-bottom: 1px solid #f5f5f5;
+                                                padding: 10px 0;
+                                          }
+                                          th {
+                                                color: #929eae;
+                                                margin: 15px 0;
+                                                text-align: left;
+                                          }
+                                    }
+                              }
+                        }
+                  }
+            }
+            .right-wrap {
+                  flex: 30%;
+                  padding: 15px;
+                  height: 180px;
+                  display: flex;
+                  flex-wrap: wrap;
+                  justify-content: center;
+                  .calculator {
+                        position: relative;
+                        display: flex;
+                        flex-direction: column;
+                        background-color: #fafafa;
+                        width: 40%;
+                        height: 100%;
+                        padding: 15px;
+                        margin: 10px;
+                        border: 1px solid #3d3636;
+                        border-radius: 15px;
+                        border: none;
+                        .cal-icon {
+                              position: absolute;
+                              top: 10px;
+                              border-radius: 50%;
+                              padding: 12px;
+                        }
+                        p {
+                              margin-top: 50px;
+                        }
+                        &:hover > .cal-icon {
+                              background-color: white;
+                        }
+
+                        &:hover {
+                              cursor: pointer;
+                              color: white;
+                              background-color: #363a3f;
+                        }
+                  }
+            }
+      }
+}

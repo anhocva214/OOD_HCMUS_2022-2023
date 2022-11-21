@@ -1,0 +1,677 @@
+@import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@600&family=Poppins&display=swap");
+.row {
+  display: flex;
+  flex-wrap: nowrap;
+}
+.row nav {
+  flex: 15%;
+  min-height: 1000px;
+  background-color: #fafafa;
+}
+.row nav .logo {
+  margin: 15px 0 0 20px;
+}
+.row nav ul {
+  list-style-type: none;
+  margin: 40px 10px;
+  padding: 0;
+}
+.row nav ul li {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 10px 0;
+  padding-left: 20px;
+}
+.row nav ul li a {
+  display: block;
+  color: #929eae;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 10px 16px;
+}
+.row nav ul li:hover {
+  cursor: pointer;
+}
+.row nav ul .active {
+  background-color: #c8ee44;
+  border-radius: 8px;
+}
+.row nav ul .active a {
+  color: #1b212d;
+}
+.row .dashboard-wrapper {
+  flex: 85%;
+  max-width: 85%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  padding: 40px;
+}
+.row .dashboard-wrapper .left-wrap {
+  flex: 70%;
+  max-width: 70%;
+  display: flex;
+  flex-direction: column;
+}
+.row .dashboard-wrapper .left-wrap .general {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.row .dashboard-wrapper .left-wrap .general h1 {
+  width: 100%;
+  font-size: 25px;
+  margin-bottom: 25px;
+}
+.row .dashboard-wrapper .left-wrap .general .Surplus,
+.row .dashboard-wrapper .left-wrap .general .Expense,
+.row .dashboard-wrapper .left-wrap .general .Income {
+  background-color: #f8f8f8;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 32%;
+  border-radius: 10px;
+  padding: 24px 20px;
+}
+.row .dashboard-wrapper .left-wrap .general .Surplus .surplus-img,
+.row .dashboard-wrapper .left-wrap .general .Surplus .expense-img,
+.row .dashboard-wrapper .left-wrap .general .Surplus .income-img,
+.row .dashboard-wrapper .left-wrap .general .Expense .surplus-img,
+.row .dashboard-wrapper .left-wrap .general .Expense .expense-img,
+.row .dashboard-wrapper .left-wrap .general .Expense .income-img,
+.row .dashboard-wrapper .left-wrap .general .Income .surplus-img,
+.row .dashboard-wrapper .left-wrap .general .Income .expense-img,
+.row .dashboard-wrapper .left-wrap .general .Income .income-img {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 30%;
+}
+.row .dashboard-wrapper .left-wrap .general .Surplus .surplus-img .offHover,
+.row .dashboard-wrapper .left-wrap .general .Surplus .expense-img .offHover,
+.row .dashboard-wrapper .left-wrap .general .Surplus .income-img .offHover,
+.row .dashboard-wrapper .left-wrap .general .Expense .surplus-img .offHover,
+.row .dashboard-wrapper .left-wrap .general .Expense .expense-img .offHover,
+.row .dashboard-wrapper .left-wrap .general .Expense .income-img .offHover,
+.row .dashboard-wrapper .left-wrap .general .Income .surplus-img .offHover,
+.row .dashboard-wrapper .left-wrap .general .Income .expense-img .offHover,
+.row .dashboard-wrapper .left-wrap .general .Income .income-img .offHover {
+  background-color: #ebe8e8;
+  border-radius: 50px;
+  padding: 10px;
+}
+.row .dashboard-wrapper .left-wrap .general .Surplus .surplus-img .onHover,
+.row .dashboard-wrapper .left-wrap .general .Surplus .expense-img .onHover,
+.row .dashboard-wrapper .left-wrap .general .Surplus .income-img .onHover,
+.row .dashboard-wrapper .left-wrap .general .Expense .surplus-img .onHover,
+.row .dashboard-wrapper .left-wrap .general .Expense .expense-img .onHover,
+.row .dashboard-wrapper .left-wrap .general .Expense .income-img .onHover,
+.row .dashboard-wrapper .left-wrap .general .Income .surplus-img .onHover,
+.row .dashboard-wrapper .left-wrap .general .Income .expense-img .onHover,
+.row .dashboard-wrapper .left-wrap .general .Income .income-img .onHover {
+  display: none;
+}
+.row .dashboard-wrapper .left-wrap .general .Surplus:hover,
+.row .dashboard-wrapper .left-wrap .general .Expense:hover,
+.row .dashboard-wrapper .left-wrap .general .Income:hover {
+  background-color: #363a3f;
+  color: white;
+}
+.row .dashboard-wrapper .left-wrap .general .Surplus:hover .onHover,
+.row .dashboard-wrapper .left-wrap .general .Expense:hover .onHover,
+.row .dashboard-wrapper .left-wrap .general .Income:hover .onHover {
+  position: absolute;
+  display: inline;
+  background-color: #4e5257;
+}
+.row .dashboard-wrapper .left-wrap .general .Surplus:hover .offHover,
+.row .dashboard-wrapper .left-wrap .general .Expense:hover .offHover,
+.row .dashboard-wrapper .left-wrap .general .Income:hover .offHover {
+  background-color: #4e5257;
+}
+.row .dashboard-wrapper .left-wrap .general .Surplus .detail,
+.row .dashboard-wrapper .left-wrap .general .Expense .detail,
+.row .dashboard-wrapper .left-wrap .general .Income .detail {
+  flex: 70%;
+}
+.row .dashboard-wrapper .left-wrap .general .Surplus .detail .surplus-value,
+.row .dashboard-wrapper .left-wrap .general .Surplus .detail .expense-value,
+.row .dashboard-wrapper .left-wrap .general .Surplus .detail .income-value,
+.row .dashboard-wrapper .left-wrap .general .Expense .detail .surplus-value,
+.row .dashboard-wrapper .left-wrap .general .Expense .detail .expense-value,
+.row .dashboard-wrapper .left-wrap .general .Expense .detail .income-value,
+.row .dashboard-wrapper .left-wrap .general .Income .detail .surplus-value,
+.row .dashboard-wrapper .left-wrap .general .Income .detail .expense-value,
+.row .dashboard-wrapper .left-wrap .general .Income .detail .income-value {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+.row .dashboard-wrapper .left-wrap .charts {
+  margin-top: 25px;
+}
+.row .dashboard-wrapper .left-wrap .recent {
+  border: 1px solid #f5f5f5;
+  border-radius: 10px;
+  padding: 15px;
+  margin-top: 25px;
+}
+.row .dashboard-wrapper .left-wrap .recent-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.row .dashboard-wrapper .left-wrap .recent-heading a {
+  color: #29a073;
+  font-weight: 600;
+  text-decoration: none;
+}
+.row .dashboard-wrapper .left-wrap .recent-heading a:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+.row .dashboard-wrapper .left-wrap .recent .tables table {
+  width: 100%;
+}
+.row .dashboard-wrapper .left-wrap .recent .tables table tr {
+  border: 1px solid #f5f5f5;
+}
+.row .dashboard-wrapper .left-wrap .recent .tables table tr td {
+  border-bottom: 1px solid #f5f5f5;
+  padding: 10px 0;
+}
+.row .dashboard-wrapper .left-wrap .recent .tables table tr th {
+  color: #929eae;
+  margin: 15px 0;
+  text-align: left;
+}
+.row .dashboard-wrapper .right-wrap {
+  flex: 30%;
+  padding: 15px;
+  height: 180px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.row .dashboard-wrapper .right-wrap .calculator {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background-color: #fafafa;
+  width: 40%;
+  height: 100%;
+  padding: 15px;
+  margin: 10px;
+  border: 1px solid #3d3636;
+  border-radius: 15px;
+  border: none;
+}
+.row .dashboard-wrapper .right-wrap .calculator .cal-icon {
+  position: absolute;
+  top: 10px;
+  border-radius: 50%;
+  padding: 12px;
+}
+.row .dashboard-wrapper .right-wrap .calculator p {
+  margin-top: 50px;
+}
+.row .dashboard-wrapper .right-wrap .calculator:hover > .cal-icon {
+  background-color: white;
+}
+.row .dashboard-wrapper .right-wrap .calculator:hover {
+  cursor: pointer;
+  color: white;
+  background-color: #363a3f;
+}
+
+.row {
+  display: flex;
+  flex-wrap: nowrap;
+}
+.row nav {
+  flex: 15%;
+  min-height: 1000px;
+  background-color: #fafafa;
+}
+.row nav .logo {
+  margin: 15px 0 0 20px;
+}
+.row nav ul {
+  list-style-type: none;
+  margin: 40px 10px;
+  padding: 0;
+}
+.row nav ul li {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 10px 0;
+  padding-left: 20px;
+}
+.row nav ul li a {
+  display: block;
+  color: #929eae;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 10px 16px;
+}
+.row nav ul li:hover {
+  cursor: pointer;
+}
+.row nav ul .active {
+  background-color: #c8ee44;
+  border-radius: 8px;
+}
+.row nav ul .active a {
+  color: #1b212d;
+}
+.row .setting-wrapper {
+  flex: 85%;
+  padding: 40px;
+}
+.row .setting-wrapper .content {
+  padding: 40px 100px 60px 40px;
+}
+.row .setting-wrapper .content .acc-info {
+  padding: 20px 0;
+}
+.row .setting-wrapper .content .acc-info p {
+  margin-top: 5px;
+  color: #929eae;
+}
+.row .setting-wrapper .content .change {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 15px 0;
+}
+.row .setting-wrapper .content .change a {
+  text-decoration: none;
+  color: #29a073;
+  font-weight: 600;
+}
+.row .setting-wrapper .content .change a:hover {
+  text-decoration: underline;
+  color: rgb(153, 255, 0);
+}
+.row .setting-wrapper .content .input-field {
+  display: flex;
+  flex-direction: column;
+}
+.row .setting-wrapper .content .input-field .first-item,
+.row .setting-wrapper .content .input-field .second-item,
+.row .setting-wrapper .content .input-field .fourth-item {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  margin: 15px 0;
+}
+.row .setting-wrapper .content .input-field .first-item .name,
+.row .setting-wrapper .content .input-field .second-item .name,
+.row .setting-wrapper .content .input-field .fourth-item .name {
+  width: 47%;
+}
+.row .setting-wrapper .content .input-field .first-item .name p,
+.row .setting-wrapper .content .input-field .second-item .name p,
+.row .setting-wrapper .content .input-field .fourth-item .name p {
+  margin-bottom: 5px;
+}
+.row .setting-wrapper .content .input-field .first-item .name input,
+.row .setting-wrapper .content .input-field .second-item .name input,
+.row .setting-wrapper .content .input-field .fourth-item .name input {
+  width: 100%;
+  border-radius: 8px;
+  padding: 15px;
+  color: #78778b;
+}
+.row .setting-wrapper .content .input-field .first-item .sex,
+.row .setting-wrapper .content .input-field .second-item .sex,
+.row .setting-wrapper .content .input-field .fourth-item .sex {
+  width: 47%;
+}
+.row .setting-wrapper .content .input-field .first-item .sex p,
+.row .setting-wrapper .content .input-field .second-item .sex p,
+.row .setting-wrapper .content .input-field .fourth-item .sex p {
+  margin-bottom: 5px;
+}
+.row .setting-wrapper .content .input-field .first-item .sex select,
+.row .setting-wrapper .content .input-field .second-item .sex select,
+.row .setting-wrapper .content .input-field .fourth-item .sex select {
+  width: 100%;
+  border-radius: 8px;
+  padding: 15px;
+  color: #78778b;
+}
+.row .setting-wrapper .content .input-field .first-item .birthday,
+.row .setting-wrapper .content .input-field .second-item .birthday,
+.row .setting-wrapper .content .input-field .fourth-item .birthday {
+  width: 47%;
+}
+.row .setting-wrapper .content .input-field .first-item .birthday p,
+.row .setting-wrapper .content .input-field .second-item .birthday p,
+.row .setting-wrapper .content .input-field .fourth-item .birthday p {
+  margin-bottom: 5px;
+}
+.row .setting-wrapper .content .input-field .first-item .birthday input,
+.row .setting-wrapper .content .input-field .second-item .birthday input,
+.row .setting-wrapper .content .input-field .fourth-item .birthday input {
+  width: 100%;
+  border-radius: 8px;
+  padding: 15px;
+  color: #78778b;
+}
+.row .setting-wrapper .content .input-field .first-item .phone,
+.row .setting-wrapper .content .input-field .second-item .phone,
+.row .setting-wrapper .content .input-field .fourth-item .phone {
+  width: 47%;
+}
+.row .setting-wrapper .content .input-field .first-item .phone p,
+.row .setting-wrapper .content .input-field .second-item .phone p,
+.row .setting-wrapper .content .input-field .fourth-item .phone p {
+  margin-bottom: 5px;
+}
+.row .setting-wrapper .content .input-field .first-item .phone input,
+.row .setting-wrapper .content .input-field .second-item .phone input,
+.row .setting-wrapper .content .input-field .fourth-item .phone input {
+  width: 100%;
+  border-radius: 8px;
+  padding: 15px;
+  color: #78778b;
+}
+.row .setting-wrapper .content .input-field .first-item .new-pass,
+.row .setting-wrapper .content .input-field .second-item .new-pass,
+.row .setting-wrapper .content .input-field .fourth-item .new-pass {
+  width: 47%;
+}
+.row .setting-wrapper .content .input-field .first-item .new-pass p,
+.row .setting-wrapper .content .input-field .second-item .new-pass p,
+.row .setting-wrapper .content .input-field .fourth-item .new-pass p {
+  margin-bottom: 5px;
+}
+.row .setting-wrapper .content .input-field .first-item .new-pass input,
+.row .setting-wrapper .content .input-field .second-item .new-pass input,
+.row .setting-wrapper .content .input-field .fourth-item .new-pass input {
+  width: 100%;
+  border-radius: 8px;
+  padding: 15px;
+  color: #78778b;
+}
+.row .setting-wrapper .content .input-field .first-item .new-pass-confirm,
+.row .setting-wrapper .content .input-field .second-item .new-pass-confirm,
+.row .setting-wrapper .content .input-field .fourth-item .new-pass-confirm {
+  width: 47%;
+}
+.row .setting-wrapper .content .input-field .first-item .new-pass-confirm p,
+.row .setting-wrapper .content .input-field .second-item .new-pass-confirm p,
+.row .setting-wrapper .content .input-field .fourth-item .new-pass-confirm p {
+  margin-bottom: 5px;
+}
+.row .setting-wrapper .content .input-field .first-item .new-pass-confirm input,
+.row .setting-wrapper .content .input-field .second-item .new-pass-confirm input,
+.row .setting-wrapper .content .input-field .fourth-item .new-pass-confirm input {
+  width: 100%;
+  border-radius: 8px;
+  padding: 15px;
+  color: #78778b;
+}
+.row .setting-wrapper .content .input-field .third-item p {
+  margin-bottom: 5px;
+}
+.row .setting-wrapper .content .input-field .third-item input {
+  width: 100%;
+  border-radius: 8px;
+  padding: 15px;
+  color: #78778b;
+}
+
+.row {
+  display: flex;
+  flex-wrap: nowrap;
+}
+.row nav {
+  flex: 15%;
+  min-height: 1000px;
+  background-color: #fafafa;
+}
+.row nav .logo {
+  margin: 15px 0 0 20px;
+}
+.row nav ul {
+  list-style-type: none;
+  margin: 40px 10px;
+  padding: 0;
+}
+.row nav ul li {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 10px 0;
+  padding-left: 20px;
+}
+.row nav ul li a {
+  display: block;
+  color: #929eae;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 10px 16px;
+}
+.row nav ul li:hover {
+  cursor: pointer;
+}
+.row nav ul .active {
+  background-color: #c8ee44;
+  border-radius: 8px;
+}
+.row nav ul .active a {
+  color: #1b212d;
+}
+.row .transactions-wrapper {
+  flex: 85%;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+}
+.row .transactions-wrapper h1 {
+  font-size: 25px;
+  width: 100%;
+  margin-bottom: 25px;
+}
+.row .transactions-wrapper .search-box {
+  display: flex;
+  justify-content: space-between;
+}
+.row .transactions-wrapper .search-box input {
+  width: 70%;
+  padding: 10px 15px;
+  border-radius: 15px;
+  color: #929eae;
+  background-color: #f8f8f8;
+  border: none;
+}
+.row .transactions-wrapper .search-box button {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 20%;
+  border: 2px solid #000000;
+  font-weight: 600;
+  color: black;
+  padding: 10px;
+  background-color: white;
+  border-radius: 8px;
+  text-align: center;
+}
+.row .transactions-wrapper .search-box button:hover {
+  cursor: pointer;
+  background-color: #929eae;
+}
+.row .transactions-wrapper .all-recent-trans {
+  margin-top: 20px;
+  padding: 15px;
+  border-radius: 10px;
+  width: 100%;
+}
+.row .transactions-wrapper .all-recent-trans .tables table {
+  width: 100%;
+}
+.row .transactions-wrapper .all-recent-trans .tables table tr {
+  border: 1px solid #f5f5f5;
+}
+.row .transactions-wrapper .all-recent-trans .tables table tr td {
+  border-bottom: 1px solid #f5f5f5;
+  padding: 15px 0;
+}
+.row .transactions-wrapper .all-recent-trans .tables table tr td button {
+  border: 1px solid #78778b;
+  padding: 15px 20px;
+  margin-left: 40px;
+  background-color: white;
+  border-radius: 8px;
+  color: #78778b;
+}
+.row .transactions-wrapper .all-recent-trans .tables table tr td button:hover {
+  cursor: pointer;
+  background-color: #929eae;
+}
+.row .transactions-wrapper .all-recent-trans .tables table tr th {
+  color: #929eae;
+  text-align: left;
+}
+
+.modal {
+  position: fixed;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 10px;
+  -webkit-animation: showModal linear 0.2s;
+          animation: showModal linear 0.2s;
+}
+.modal form {
+  width: 400px;
+  height: 300px;
+  background-color: rgb(224, 221, 233);
+  border-radius: 10px;
+  text-align: center;
+  padding: 40px 20px;
+}
+.modal form h1 {
+  text-align: left;
+  font-size: 20px;
+}
+.modal form .input-field {
+  margin: 0 auto;
+  text-align: left;
+}
+.modal form .input-field p {
+  font-size: 14px;
+  color: #78778b;
+  margin: 10px 0;
+}
+.modal form .input-field input {
+  width: 100%;
+  height: 40px;
+  border: 1px solid #463f3f;
+  border-radius: 10px;
+  color: black;
+  padding: 10px;
+}
+.modal form .getpass {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 40px;
+  background: #c8ee44;
+  border-radius: 10px;
+  font-weight: 600;
+  border: none;
+}
+.modal form .getpass:hover {
+  background: #b1d824;
+  cursor: pointer;
+}
+.modal form button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 424px;
+  height: 48px;
+  background: #c8ee44;
+  border-radius: 10px;
+  font-weight: 600;
+  border: none;
+}
+.modal form button:hover {
+  background: #b1d824;
+  cursor: pointer;
+}
+.modal form .options {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+.modal form .options a {
+  text-decoration: none;
+  padding: 15px;
+  border-radius: 10px;
+  background-color: #f8f8f8;
+  border: none;
+  width: 45%;
+  color: #0d9917;
+  font-weight: 600;
+}
+.modal form .options a:hover {
+  cursor: pointer;
+  background-color: #e2dcdc;
+}
+.modal form .options button {
+  padding: 15px;
+  border-radius: 10px;
+  background-color: #f8f8f8;
+  border: none;
+  width: 45%;
+  color: #0d9917;
+  font-weight: 600;
+}
+.modal form .options button:hover {
+  cursor: pointer;
+  background-color: #e2dcdc;
+}
+@-webkit-keyframes showModal {
+  from {
+    top: -200px;
+    opacity: 0;
+  }
+  to {
+    top: 0;
+    opacity: 1;
+  }
+}
+@keyframes showModal {
+  from {
+    top: -200px;
+    opacity: 0;
+  }
+  to {
+    top: 0;
+    opacity: 1;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Kumbh Sans", sans-serif;
+  width: 100vw;
+  height: 100vh;
+}/*# sourceMappingURL=main.css.map */

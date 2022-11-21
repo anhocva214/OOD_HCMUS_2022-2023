@@ -1,0 +1,74 @@
+section {
+      display: flex;
+      justify-content: center;
+      .left-content {
+            padding: 30px 80px;
+            .logo {
+                  margin-bottom: 100px;
+            }
+            .sign-up {
+                  &-form {
+                        h1 {
+                              font-size: 30px;
+                        }
+                        p {
+                              color: #78778b;
+                              margin-bottom: 5px;
+                        }
+                        .input-field {
+                              margin: 25px 0;
+                              p {
+                                    font-size: 16px;
+                                    color: black;
+                              }
+                              input {
+                                    padding-left: 20px;
+                                    width: 100%;
+                                    height: 48px;
+                                    border: 1px solid #272222;
+                                    border-radius: 10px;
+                              }
+                        }
+
+                        .btn-sign-up {
+                              display: flex;
+                              flex-direction: row;
+                              justify-content: center;
+                              align-items: center;
+                              font-weight: 600;
+                              padding: 14px 20px;
+                              margin-top: 25px;
+                              width: 424px;
+                              height: 48px;
+                              background: #c8ee44;
+                              border-radius: 10px;
+                              border: none;
+                              &:hover {
+                                    background: #b1d824;
+                                    cursor: pointer;
+                              }
+                        }
+                        .sign-in-link {
+                              margin-top: 20px;
+                              display: flex;
+                              justify-content: center;
+                              color: #78778b;
+                              a {
+                                    text-decoration: none;
+                                    color: black;
+                                    font-weight: 500;
+                                    &:hover {
+                                          text-decoration: underline;
+                                    }
+                              }
+                        }
+                  }
+            }
+      }
+      .right-content {
+            img {
+                  width: 100%;
+                  object-fit: cover;
+            }
+      }
+}

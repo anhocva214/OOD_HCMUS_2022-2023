@@ -1,0 +1,116 @@
+.row {
+      display: flex;
+      flex-wrap: nowrap;
+      nav {
+            flex: 15%;
+            min-height: 1000px;
+            background-color: #fafafa;
+            .logo {
+                  margin: 15px 0 0 20px;
+            }
+            ul {
+                  list-style-type: none;
+                  margin: 40px 10px;
+                  padding: 0;
+                  li {
+                        display: flex;
+                        justify-content: flex-start;
+                        align-items: center;
+                        margin: 10px 0;
+                        padding-left: 20px;
+                        a {
+                              display: block;
+                              color: #929eae;
+                              text-decoration: none;
+                              font-weight: 600;
+                              padding: 10px 16px;
+                        }
+                        &:hover {
+                              cursor: pointer;
+                        }
+                  }
+                  .active {
+                        background-color: #c8ee44;
+                        border-radius: 8px;
+                        a {
+                              color: #1b212d;
+                        }
+                  }
+            }
+      }
+
+      .transactions-wrapper {
+            flex: 85%;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            h1 {
+                  font-size: 25px;
+                  width: 100%;
+                  margin-bottom: 25px;
+            }
+            .search-box {
+                  display: flex;
+                  justify-content: space-between;
+                  input {
+                        width: 70%;
+                        padding: 10px 15px;
+                        border-radius: 15px;
+                        color: #929eae;
+                        background-color: #f8f8f8;
+                        border: none;
+                  }
+                  button {
+                        display: flex;
+                        justify-content: space-evenly;
+                        align-items: center;
+                        width: 20%;
+                        border: 2px solid #000000;
+                        font-weight: 600;
+                        color: black;
+                        padding: 10px;
+                        background-color: white;
+                        border-radius: 8px;
+                        text-align: center;
+                        &:hover {
+                              cursor: pointer;
+                              background-color: #929eae;
+                        }
+                  }
+            }
+            .all-recent-trans {
+                  margin-top: 20px;
+                  padding: 15px;
+                  border-radius: 10px;
+                  width: 100%;
+                  .tables {
+                        table {
+                              width: 100%;
+                              tr {
+                                    border: 1px solid #f5f5f5;
+                                    td {
+                                          border-bottom: 1px solid #f5f5f5;
+                                          padding: 15px 0;
+                                          button {
+                                                border: 1px solid #78778b;
+                                                padding: 15px 20px;
+                                                margin-left: 40px;
+                                                background-color: white;
+                                                border-radius: 8px;
+                                                color: #78778b;
+                                                &:hover {
+                                                      cursor: pointer;
+                                                      background-color: #929eae;
+                                                }
+                                          }
+                                    }
+                                    th {
+                                          color: #929eae;
+                                          text-align: left;
+                                    }
+                              }
+                        }
+                  }
+            }
+      }
+}

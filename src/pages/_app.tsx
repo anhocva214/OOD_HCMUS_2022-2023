@@ -19,16 +19,15 @@ function App({ Component, pageProps }: AppProps) {
         <meta charSet="utf-8" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content={"New Project"} />
+        <meta name="description" content={"Monoleak"} />
         <meta name="author" content={"anho"} />
-        <title>New Project</title>
+        <title>Monoleak</title>
         <link rel="icon" href="/img/favicon.png" type="image/x-icon" />
         <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon" />
 
         {/* CSS custom */}
-        {/* <link rel="stylesheet" href="/css/all.min.css" /> */}
-
-
+        <link href="./assets/css/main.css" rel="stylesheet" />
+       
       </Head>
 
       <Alert stack={{ limit: 3 }} />
