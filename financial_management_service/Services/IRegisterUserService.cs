@@ -46,7 +46,7 @@ namespace financial_management_service.Services
 			dto.Password = dto.Password.Trim();
 		}
 
-		private Users InitUser(UserReqDto dto)
+		private static Users InitUser(UserReqDto dto)
 		{
 			return new Users()
 			{

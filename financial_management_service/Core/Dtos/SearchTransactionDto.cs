@@ -14,7 +14,8 @@
 
     public class SearchTransactionResDto
     {
-        public string? TransactionId { get; set; }
+        public string? Id { get; set; }
+        public string? UserId { get; set; }
         public string? WalletId { get; set; }
         public string? CategoryId { get; set; }
         public decimal? Amount { get; set; }

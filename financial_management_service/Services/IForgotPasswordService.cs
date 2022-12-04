@@ -59,8 +59,7 @@ namespace financial_management_service.Services
         {
 			return new MailRequest()
 			{
-				//ToEmail = dto.Email,
-				ToEmail = "nguyenduccuong0318@gmail.com",
+				ToEmail = dto.Email,
 				Subject = "[FINANCIAL_MANAGEMENT] Lấy lại mật khẩu.",
 				Body = (await System.IO.File.ReadAllTextAsync(FileUtils.GetFilePath(_environment, "EmailTemplate/email.html"))).Replace("{EMAIL}", dto.Email).Replace("{PASSWORD}", password),
 			};

@@ -4,7 +4,6 @@ using financial_management_service.Core.Entities;
 using financial_management_service.Extensions;
 using financial_management_service.Infrastructure.DBContext;
 using financial_management_service.Utils;
-using System.Globalization;
 
 namespace financial_management_service.Services
 {
@@ -40,18 +39,18 @@ namespace financial_management_service.Services
 
 			If.IsTrue(dto.CategoryId.IsNullOrEmpty() || !dto.CategoryId.IsGuid()).ThrBiz(ErrorCode._400_01, "Dữ liệu truyền vào không đúng.");
 
-			If.IsTrue(!dto.Amount.HasValue).ThrBiz(ErrorCode._400_01, "Vui lòng điền số tiền.");
+			If.IsTrue(!dto.Amount.HasValue).ThrBiz(ErrorCode._400_02, "Vui lòng điền số tiền.");
 
-			If.IsNull(dto.Date).ThrBiz(ErrorCode._400_01, "Vui lòng chọn ngày.");
+			If.IsNull(dto.Date).ThrBiz(ErrorCode._400_03, "Vui lòng chọn ngày.");
 
-			If.IsTrue(await _uok.Users.GetByIdAsync(dto.UserId) == null).ThrBiz(ErrorCode._400_01, "Không tìm thấy dữ liệu tài khoản của bạn.");
+			If.IsTrue(await _uok.Users.GetByIdAsync(dto.UserId) == null).ThrBiz(ErrorCode._400_04, "Không tìm thấy dữ liệu tài khoản của bạn.");
 
-			If.IsTrue(await _uok.Wallet.GetByIdAsync(dto.WalletId) == null).ThrBiz(ErrorCode._400_01, "Không tìm thấy dữ liệu ví.");
+			If.IsTrue(await _uok.Wallet.GetByIdAsync(dto.WalletId) == null).ThrBiz(ErrorCode._400_05, "Không tìm thấy dữ liệu ví.");
 
-			If.IsTrue(await _uok.Categories.GetByIdAsync(dto.CategoryId) == null).ThrBiz(ErrorCode._400_01, "Không tìm thấy dữ liệu danh mục.");
+			If.IsTrue(await _uok.Categories.GetByIdAsync(dto.CategoryId) == null).ThrBiz(ErrorCode._400_06, "Không tìm thấy dữ liệu danh mục.");
 		}
 
-		private Transaction InitTransaction(TransactionReqDto dto)
+		private static Transaction InitTransaction(TransactionReqDto dto)
         {
 			return new Transaction()
 			{

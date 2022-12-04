@@ -15,7 +15,9 @@ namespace financial_management_service.Infrastructure.Repository
     public class TransactionRepository : Repository<Transaction>, ITransactionRepository
     {
         #region SQL
-        private readonly string QuerySearchTransaction = "select count(1) as Total FROM payment_order ";
+        private readonly string QuerySearchTransaction = @"select id as Id, user_id as UserId, wallet_id as WalletId, category_id as CategoryId, 
+        amount as Amount, date as Date, note as Note 
+        from [dbo].[transaction] ";
 
         #endregion
         public TransactionRepository(ApplicationContext context) : base(context)
