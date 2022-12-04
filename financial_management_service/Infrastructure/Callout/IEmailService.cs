@@ -28,9 +28,8 @@ namespace financial_management_service.Infrastructure.Callout
             var smtp = new SmtpClient();
             try
             {
-                smtp.CheckCertificateRevocation = false;
-                await smtp.ConnectAsync(_mailSettings.Host, _mailSettings.Port, _mailSettings.EnableSSL ? SecureSocketOptions.SslOnConnect : SecureSocketOptions.None);
-                await smtp.AuthenticateAsync(_mailSettings.Mail, _mailSettings.Password);
+                smtp.Connect(_mailSettings.Host, _mailSettings.Port, _mailSettings.EnableSSL ? SecureSocketOptions.StartTls : SecureSocketOptions.None);
+                smtp.Authenticate(_mailSettings.Mail, _mailSettings.Password);
                 await smtp.SendAsync(email);
             }
             catch(Exception ex)
@@ -57,6 +56,8 @@ namespace financial_management_service.Infrastructure.Callout
             email.To.Add(MailboxAddress.Parse(mailRequest.ToEmail));
 
             var builder = AddAttachments(mailRequest);
+
+            builder.HtmlBody = mailRequest.Body;
 
             email.Body = builder.ToMessageBody();
 
