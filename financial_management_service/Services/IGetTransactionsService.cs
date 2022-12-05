@@ -1,6 +1,5 @@
 ﻿using financial_management_service.Core.Constant;
 using financial_management_service.Core.Dtos;
-using financial_management_service.Core.Entities;
 using financial_management_service.Extensions;
 using financial_management_service.Infrastructure.DBContext;
 using financial_management_service.Utils;
@@ -14,8 +13,6 @@ namespace financial_management_service.Services
 
 	public class GetTransactionsService : BaseService, IGetTransactionsService
 	{
-		private readonly static string _typeDate = "dd/MM/yyyy";
-
 		private readonly IUnitOfWork _uok;
 
 		public GetTransactionsService(IUnitOfWork uok) => _uok = uok;
@@ -37,16 +34,8 @@ namespace financial_management_service.Services
 
 			If.IsTrue(await _uok.Wallet.GetByIdAsync(dto.WalletId) == null).ThrBiz(ErrorCode._400_03, "Không tìm thấy dữ liệu ví.");
 
-			if (!dto.FromDate.IsNullOrEmpty() && !dto.ToDate.IsNullOrEmpty())
-			{
-				DateTime? fromDate = DatetimeUtils.ToDate(dto.FromDate, _typeDate);
-				DateTime? toDate = DatetimeUtils.ToDate(dto.ToDate, _typeDate);
-
-				If.IsTrue(fromDate > toDate).ThrBiz(ErrorCode._400_04, "Ngày bắt đầu phải nhỏ hoặc bằng ngày kết thúc.");
-
-				dto.FromDate = fromDate?.ToString("yyyy-MM-dd 00:00:00");
-				dto.ToDate = toDate?.ToString("yyyy-MM-dd 23:59:59");
-			}
+			if (dto.FromDate != null && dto.ToDate != null)
+				If.IsTrue(dto.FromDate > dto.ToDate).ThrBiz(ErrorCode._400_04, "Ngày bắt đầu phải nhỏ hoặc bằng ngày kết thúc.");
 		}
 	}
 }

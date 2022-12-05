@@ -48,8 +48,8 @@ namespace financial_management_service.Infrastructure.Repository
                 parameters.Add(new SqlParameter("WalletId", dto.WalletId));
             }
 
-            if (!dto.FromDate.IsNullOrEmpty() && !dto.ToDate.IsNullOrEmpty())
-                condition += @$" AND date BETWEEN '{dto.FromDate}' AND '{dto.ToDate}'";
+            if (dto.FromDate != null && dto.ToDate != null)
+                condition += @$" AND date BETWEEN '{dto.FromDate?.ToString("yyyy-MM-dd 00:00:00")}' AND '{dto.ToDate?.ToString("yyyy-MM-dd 23:59:59")}'";
 
             return condition;
         }

@@ -10,7 +10,7 @@
         public string? WalletId { get; set; }
         public string? CategoryId { get; set; }
         public decimal? Amount { get; set; }
-        public string?  Date{ get; set; }
+        public DateTime?  Date{ get; set; }
         public string? Note { get; set; }
         public TransactionReqDto()
         {
@@ -18,7 +18,7 @@
             WalletId = String.Empty;
             CategoryId = String.Empty;
             Amount = 0;
-            Date = String.Empty;
+            Date = null;
             Note = String.Empty;
         }
     }
@@ -28,14 +28,14 @@
         public string? TransactionId { get; set; }
         public string? CategoryId { get; set; }
         public decimal? Amount { get; set; }
-        public string? Date { get; set; }
+        public DateTime? Date { get; set; }
         public string? Note { get; set; }
         public UpdateTransactionReqDto()
         {
             TransactionId = String.Empty;
             CategoryId = String.Empty;
             Amount = 0;
-            Date = String.Empty;
+            Date = null;
             Note = String.Empty;
         }
     }

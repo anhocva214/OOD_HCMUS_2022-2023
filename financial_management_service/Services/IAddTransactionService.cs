@@ -41,7 +41,7 @@ namespace financial_management_service.Services
 
 			If.IsTrue(!dto.Amount.HasValue).ThrBiz(ErrorCode._400_02, "Vui lòng điền số tiền.");
 
-			If.IsNull(dto.Date).ThrBiz(ErrorCode._400_03, "Vui lòng chọn ngày.");
+			If.IsTrue(dto.Date != null).ThrBiz(ErrorCode._400_03, "Vui lòng chọn ngày.");
 
 			If.IsTrue(await _uok.Users.GetByIdAsync(dto.UserId) == null).ThrBiz(ErrorCode._400_04, "Không tìm thấy dữ liệu tài khoản của bạn.");
 
@@ -58,7 +58,7 @@ namespace financial_management_service.Services
 				WalletId = dto.WalletId,
 				CategoryId = dto.CategoryId,
 				Amount = dto.Amount,
-				Date = DatetimeUtils.ToDate(dto.Date, "dd/MM/yyyy"),
+				Date = dto.Date,
 				Note = dto.Note,
 				CreatedAt = DateTime.Now,
 				ModifiedAt = DateTime.Now
