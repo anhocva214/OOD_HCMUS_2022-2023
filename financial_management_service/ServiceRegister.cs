@@ -16,8 +16,7 @@ namespace financial_management_service
 			var configuration = builder.Configuration;
 			new ConfigManager().Init(configuration);
 
-			var connectionString = configuration["ConnectionString"];
-			builder.Services.AddDbContext<ApplicationContext>(options => options.UseSqlServer(connectionString, b => b.MigrationsAssembly(typeof(ApplicationContext).Assembly.FullName)));
+			builder.Services.AddDbContext<ApplicationContext>(opt => opt.UseInMemoryDatabase("Financial_Management"));
 			builder.Services.AddHttpContextAccessor();
 			builder.Services.AddMemoryCache();
 			builder.Services.AddHttpClient();
