@@ -28,11 +28,7 @@ namespace financial_management_service.Services
 		{
 			If.IsTrue(dto.UserId.IsNullOrEmpty() || !dto.UserId.IsGuid()).ThrBiz(ErrorCode._400_01, "Dữ liệu truyền vào không đúng.");
 
-			If.IsTrue(dto.WalletId.IsNullOrEmpty() || !dto.WalletId.IsGuid()).ThrBiz(ErrorCode._400_01, "Dữ liệu truyền vào không đúng.");
-
 			If.IsTrue(await _uok.Users.GetByIdAsync(dto.UserId) == null).ThrBiz(ErrorCode._400_02, "Không tìm thấy tài khoản đăng nhập.");
-
-			If.IsTrue(await _uok.Wallet.GetByIdAsync(dto.WalletId) == null).ThrBiz(ErrorCode._400_03, "Không tìm thấy dữ liệu ví.");
 
 			if (dto.FromDate != null && dto.ToDate != null)
 				If.IsTrue(dto.FromDate > dto.ToDate).ThrBiz(ErrorCode._400_04, "Ngày bắt đầu phải nhỏ hoặc bằng ngày kết thúc.");

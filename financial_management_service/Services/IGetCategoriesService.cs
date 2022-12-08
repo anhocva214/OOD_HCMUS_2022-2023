@@ -14,6 +14,6 @@ namespace financial_management_service.Services
 
 		public GetCategoriesService(IUnitOfWork uok) => _uok = uok;
 
-		public async Task<List<Categories>> Execute() => (await _uok.Categories.GetListAsync()).OrderBy(y => y.CategoryName).ToList();
+		public async Task<List<Categories>> Execute() => (await _uok.Categories.GetListAsync()).ToList();
 	}
 }

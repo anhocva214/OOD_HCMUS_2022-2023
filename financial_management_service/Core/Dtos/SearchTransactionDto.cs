@@ -7,7 +7,6 @@
     public class SearchTransactionReqDto
     {
         public string? UserId { get; set; }
-        public string? WalletId { get; set; }
         public DateTime? FromDate { get; set; }
         public DateTime? ToDate { get; set; }
     }
