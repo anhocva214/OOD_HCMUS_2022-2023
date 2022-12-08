@@ -2,6 +2,7 @@ FROM mcr.microsoft.com/dotnet/aspnet:6.0
 EXPOSE 5259
 WORKDIR /app
 COPY financial_management_service/published/ ./
+COPY financial_management_service/EmailTemplate ./EmailTemplate
 ENV ASPNETCORE_URLS=http://+:5259
 ENV ASPNETCORE_ENVIRONMENT=Development
 
