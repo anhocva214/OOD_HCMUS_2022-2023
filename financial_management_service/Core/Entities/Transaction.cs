@@ -29,6 +29,7 @@ namespace financial_management_service.Core.Entities
         public Transaction()
         {
             Id = Guid.NewGuid().ToString();
+            WalletId = String.Empty;
         }
 
     }

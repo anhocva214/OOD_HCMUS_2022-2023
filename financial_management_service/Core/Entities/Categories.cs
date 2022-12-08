@@ -9,10 +9,7 @@ namespace financial_management_service.Core.Entities
         [Key]
         [Column("id")]
         public string? Id { get; set; }
-        [Column("category_name")]
-        public string? CategoryName { get; set; }
-        [Column("category_group")]
-        public string? CategoryGroup { get; set; }
-
+        [Column("name")]
+        public string? Name { get; set; }
     }
 }

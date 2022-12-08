@@ -35,8 +35,6 @@ namespace financial_management_service.Services
 		{
 			If.IsTrue(dto.UserId.IsNullOrEmpty() || !dto.UserId.IsGuid()).ThrBiz(ErrorCode._400_01, "Dữ liệu truyền vào không đúng.");
 
-			If.IsTrue(dto.WalletId.IsNullOrEmpty() || !dto.WalletId.IsGuid()).ThrBiz(ErrorCode._400_01, "Dữ liệu truyền vào không đúng.");
-
 			If.IsTrue(dto.CategoryId.IsNullOrEmpty() || !dto.CategoryId.IsGuid()).ThrBiz(ErrorCode._400_01, "Dữ liệu truyền vào không đúng.");
 
 			If.IsTrue(!dto.Amount.HasValue).ThrBiz(ErrorCode._400_02, "Vui lòng điền số tiền.");
@@ -44,8 +42,6 @@ namespace financial_management_service.Services
 			If.IsTrue(dto.Date != null).ThrBiz(ErrorCode._400_03, "Vui lòng chọn ngày.");
 
 			If.IsTrue(await _uok.Users.GetByIdAsync(dto.UserId) == null).ThrBiz(ErrorCode._400_04, "Không tìm thấy dữ liệu tài khoản của bạn.");
-
-			If.IsTrue(await _uok.Wallet.GetByIdAsync(dto.WalletId) == null).ThrBiz(ErrorCode._400_05, "Không tìm thấy dữ liệu ví.");
 
 			If.IsTrue(await _uok.Categories.GetByIdAsync(dto.CategoryId) == null).ThrBiz(ErrorCode._400_06, "Không tìm thấy dữ liệu danh mục.");
 		}
@@ -55,7 +51,6 @@ namespace financial_management_service.Services
 			return new Transaction()
 			{
 				UserId = dto.UserId,
-				WalletId = dto.WalletId,
 				CategoryId = dto.CategoryId,
 				Amount = dto.Amount,
 				Date = dto.Date,
