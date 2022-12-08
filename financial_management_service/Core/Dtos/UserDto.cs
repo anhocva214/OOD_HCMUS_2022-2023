@@ -10,11 +10,13 @@ namespace financial_management_service.Core.Dtos
     {
         public string? Email { get; set; }
         public string? Password { get; set; }
+        public string? FullName { get; set; }
 
         public UserReqDto()
         {
             Email = String.Empty;
             Password = String.Empty;
+            FullName = String.Empty;
         }
     }
 }

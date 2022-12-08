@@ -30,7 +30,7 @@ public class FinancialManagementController : ApiControllerBase
     [SwaggerOperation("Đăng nhập")]
     [HttpPost]
     [Route("login")]
-    public async Task<string> Login(LoginReqDto dto) => await _sp.InitILoginService().Execute(dto);
+    public async Task<LoginResDto> Login(LoginReqDto dto) => await _sp.InitILoginService().Execute(dto);
 
     [SwaggerOperation("Quên mật khẩu")]
     [HttpPut]

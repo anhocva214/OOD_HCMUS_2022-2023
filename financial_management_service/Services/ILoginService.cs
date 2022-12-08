@@ -8,7 +8,7 @@ namespace financial_management_service.Services
 {
 	public interface ILoginService
 	{
-		Task<string> Execute(LoginReqDto dto);
+		Task<LoginResDto> Execute(LoginReqDto dto);
 	}
 
 	public class LoginService : BaseService, ILoginService
@@ -23,9 +23,9 @@ namespace financial_management_service.Services
             return this;
         }
 
-		public async Task<string> Execute(LoginReqDto dto) => await Validate(dto);
+		public async Task<LoginResDto> Execute(LoginReqDto dto) => await Validate(dto);
 
-		private async Task<string> Validate(LoginReqDto dto)
+		private async Task<LoginResDto> Validate(LoginReqDto dto)
         {
 			If.IsNull(dto.Email).ThrBiz(ErrorCode._400_01, "Email không được để trống.");
 
@@ -37,7 +37,14 @@ namespace financial_management_service.Services
 
 			If.IsTrue(user == null).ThrBiz(ErrorCode._400_03, "Tài khoản hoặc mật khẩu không đúng.");
 
-			return user.Id;
+			return new LoginResDto()
+			{
+				Id = user.Id,
+				Email = user.Email,
+				Gender = user.Gender,
+				Birthday = user.Birthday,
+				PhoneNumber = user.PhoneNumber
+			};
 		}
 
 		private static void HandleData(LoginReqDto dto)

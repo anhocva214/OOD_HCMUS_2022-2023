@@ -1,7 +1,6 @@
 ﻿using financial_management_service.Core.Constant;
 using financial_management_service.Core.Dtos;
 using financial_management_service.Core.Entities;
-using financial_management_service.Extensions;
 using financial_management_service.Infrastructure.DBContext;
 using financial_management_service.Utils;
 
@@ -35,7 +34,9 @@ namespace financial_management_service.Services
 
 			If.IsNull(dto.Password).ThrBiz(ErrorCode._400_03, "Mật khẩu không được để trống.");
 
-			HandleData(dto);
+            If.IsNull(dto.FullName).ThrBiz(ErrorCode._400_04, "Họ và tên không được để trống.");
+
+            HandleData(dto);
 
 			If.IsTrue(await _uok.Users.GetFirstOrDefaultAsync(x => x.Email == dto.Email) != null).ThrBiz(ErrorCode._400_04, "Email đã được đăng ký tài khoản.");
 		}
@@ -44,6 +45,7 @@ namespace financial_management_service.Services
 		{
 			dto.Email = dto.Email.Trim();
 			dto.Password = dto.Password.Trim();
+			dto.FullName = dto.FullName.Trim();
 		}
 
 		private static Users InitUser(UserReqDto dto)
@@ -51,7 +53,8 @@ namespace financial_management_service.Services
 			return new Users()
 			{
 				Email = dto.Email,
-				Password = dto.Password
+				Password = dto.Password,
+				FullNmae = dto.FullName
 			};
 		}
 	}
