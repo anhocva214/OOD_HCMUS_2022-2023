@@ -17,10 +17,20 @@ var allowOrigin = "AllowOrigin";
 
 List<string> lsDomain = new List<string>(builder.Configuration["EnableCors"].Split(','));
 
-builder.Services.AddCors(p => p.AddPolicy(name: allowOrigin, builder =>
-{
-    builder.WithOrigins(lsDomain.ToArray()).AllowAnyMethod().AllowAnyHeader().SetIsOriginAllowed(x => lsDomain?.Count(d => d == x) > 0);
-}));
+builder.Services.AddCors(opt =>
+        {
+            opt.AddPolicy(name: allowOrigin, builder =>
+            {
+                builder.AllowAnyOrigin()
+                    .AllowAnyHeader()
+                    .AllowAnyMethod();
+            });
+        });
+
+// builder.Services.AddCors(p => p.AddPolicy(name: allowOrigin, builder =>
+// {
+//     builder.WithOrigins(lsDomain.ToArray()).AllowAnyMethod().AllowAnyHeader().SetIsOriginAllowed(x => lsDomain?.Count(d => d == x) > 0);
+// }));
 
 builder.Services.AddHealthChecks();
 
