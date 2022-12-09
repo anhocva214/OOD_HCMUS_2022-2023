@@ -9,7 +9,7 @@ import 'react-s-alert/dist/s-alert-css-effects/slide.css';
 
 import '../resources/global.css'
 import '../resources/font-awesome6pro/css/all.min.css'
-// import 'antd/dist/antd.css';
+import 'antd/dist/reset.css';
 
 function App({ Component, pageProps }: AppProps) {
   return (

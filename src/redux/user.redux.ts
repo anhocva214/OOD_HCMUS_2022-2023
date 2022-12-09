@@ -2,25 +2,29 @@ import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { RootState } from 'src/redux/reducer'
 import { User } from 'src/models/response/user.model'
 import { userApi } from '@apis/exports';
+import { UserRegister } from 'src/models/request/user';
 
 
-export const fetchUsers = createAsyncThunk(
-    'users/fetchUsers',
-    async () => {
-        const response = await userApi.getUsers()
-        return response
+export const registerUser = createAsyncThunk(
+    'users/register',
+    async (data: UserRegister, {fulfillWithValue, rejectWithValue}) => {
+        try{
+            let response = await userApi.register(data)
+            return fulfillWithValue(response)
+        }
+        catch(e){
+            return rejectWithValue(e)
+        }
     }
 )
 
 
 export interface UserState {
-    users: User[];
-    getUsersLoading: boolean;
+    loadingRegisterUser: boolean,
 }
 
 export const initialState: UserState = {
-    users: [],
-    getUsersLoading: false,
+    loadingRegisterUser: false,
 }
 
 export const userSlice = createSlice({
@@ -29,17 +33,14 @@ export const userSlice = createSlice({
     reducers: {},
     extraReducers: (builder) => {
         builder
-            .addCase(fetchUsers.pending, (state) => {
-                state.getUsersLoading = true;
+            .addCase(registerUser.pending, (state) => {
+                state.loadingRegisterUser = true;
             })
-            .addCase(fetchUsers.fulfilled, (state, { payload }: PayloadAction<User[]>) => {
-                state.getUsersLoading = false;
-                state.users = payload
+            .addCase(registerUser.fulfilled, (state) => {
+                state.loadingRegisterUser = false;
             })
-            .addCase(fetchUsers.rejected, (state, {error}) => {
-                console.log("🚀 ~ file: user.redux.ts ~ line 43 ~ .addCase ~ error", error)
-                state.getUsersLoading = false;
-                state.users = []
+            .addCase(registerUser.rejected, (state, {payload}: PayloadAction<any>) => {
+                state.loadingRegisterUser = false;
             })
     },
 })
