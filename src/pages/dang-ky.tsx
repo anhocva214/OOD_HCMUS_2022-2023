@@ -31,7 +31,7 @@ export default function RegisterPage() {
             router.push('/dang-nhap')
         }).catch(err => {
             console.log(err)
-            message.error(err?.response.data.errorMessage)
+            err?.response.data.errorMessage && message.error(err?.response.data.errorMessage)
         })
     }
 
