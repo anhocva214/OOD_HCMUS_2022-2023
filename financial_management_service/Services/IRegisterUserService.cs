@@ -28,9 +28,9 @@ namespace financial_management_service.Services
 
 		private async Task Validate(UserReqDto dto)
 		{
-			If.IsNull(dto.Email).ThrBiz(ErrorCode._400_01, "Email không được để trống!!!!");
+			If.IsNull(dto.Email).ThrBiz(ErrorCode._400_01, "Email không được để trống!");
 
-			If.IsTrue(!RegexUtils.RegexEmail(dto.Email)).ThrBiz(ErrorCode._400_02, "Email không đúng định dạng!!!");
+			If.IsTrue(!RegexUtils.RegexEmail(dto.Email)).ThrBiz(ErrorCode._400_02, "Email không đúng định dạng!");
 
 			If.IsNull(dto.Password).ThrBiz(ErrorCode._400_03, "Mật khẩu không được để trống.");
 
