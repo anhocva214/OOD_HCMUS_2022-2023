@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { RootState } from 'src/redux/reducer'
 import { User } from 'src/models/response/user.model'
 import { userApi } from '@apis/exports';
-import { UserLogin, UserRegister } from 'src/models/request/user';
+import { UserForgotPassword, UserLogin, UserRegister } from 'src/models/request/user';
 
 
 export const registerUser = createAsyncThunk(
@@ -12,8 +12,8 @@ export const registerUser = createAsyncThunk(
             let response = await userApi.register(data)
             return fulfillWithValue(response)
         }
-        catch (e) {
-            return rejectWithValue(e)
+        catch (err) {
+            return rejectWithValue(err)
         }
     }
 )
@@ -25,23 +25,37 @@ export const loginUser = createAsyncThunk(
             let response = await userApi.login(data)
             return fulfillWithValue(response)
         }
-        catch (e) {
-            return rejectWithValue(e)
+        catch (err) {
+            return rejectWithValue(err)
         }
     }
 )
 
+export const forgotPasswordUser = createAsyncThunk(
+    'users/forgotPassword',
+    async (data: UserForgotPassword, { fulfillWithValue, rejectWithValue }) => {
+        try {
+            await userApi.forgotPassword(data)
+            fulfillWithValue(null)
+        }
+        catch (err) {
+            return rejectWithValue(err)
+        }
+    }
+)
 
 export interface UserState {
     loadingRegisterUser: boolean,
     loadingLoginUser: boolean,
     user: User,
+    loadingForgotPasswordUser: boolean
 }
 
 export const initialState: UserState = {
     loadingRegisterUser: false,
     loadingLoginUser: false,
     user: null,
+    loadingForgotPasswordUser: false
 }
 
 export const userSlice = createSlice({
@@ -70,6 +84,17 @@ export const userSlice = createSlice({
             })
             .addCase(loginUser.rejected, (state) => {
                 state.loadingLoginUser = false
+            })
+
+        builder
+            .addCase(forgotPasswordUser.pending, (state) => {
+                state.loadingForgotPasswordUser = true;
+            })
+            .addCase(forgotPasswordUser.fulfilled, (state) => {
+                state.loadingForgotPasswordUser = false
+            })
+            .addCase(forgotPasswordUser.rejected, (state) => {
+                state.loadingForgotPasswordUser = false
             })
     },
 })

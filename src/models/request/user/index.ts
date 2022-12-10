@@ -24,3 +24,12 @@ export class UserLogin {
         this.password = data?.password || null;
     }
 }
+
+export class UserForgotPassword {
+    email: string;
+    constructor()
+    constructor(data?: UserForgotPassword)
+    constructor(data?: any) {
+        this.email = data?.email || null;
+    }
+}
