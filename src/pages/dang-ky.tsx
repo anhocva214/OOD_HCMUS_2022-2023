@@ -7,6 +7,8 @@ import { useSelector } from "react-redux";
 import { UserRegister } from "src/models/request/user";
 import { LoadingOutlined } from '@ant-design/icons';
 import { useRouter } from "next/router";
+import Link from "next/link";
+
 
 export default function RegisterPage() {
     const dispatch = useAppDispatch()
@@ -69,7 +71,9 @@ export default function RegisterPage() {
                             </button>
                             <span className="sign-in-link">
                                 Bạn đã có tài khoản?
-                                <a href="./sign-in.html">&nbsp;Đăng nhập</a>
+                               <Link href={'/dang-nhap'}>
+                              <span>&nbsp;Đăng nhập</span>
+                               </Link>
                             </span>
                         </form>
                     </div>
