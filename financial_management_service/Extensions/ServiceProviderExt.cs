@@ -16,6 +16,11 @@ namespace financial_management_service.Extensions
         public static IDeleteTransactionService InitIDeleteTransactionService(this IServiceProvider sp) => sp.GetService<IDeleteTransactionService>() ?? throw new Exception();		
         public static IGetTransactionsService InitIGetTransactionsService(this IServiceProvider sp) => sp.GetService<IGetTransactionsService>() ?? throw new Exception();
 		public static IRegisterUserService InitIRegisterUserService(this IServiceProvider sp) => sp.GetService<IRegisterUserService>() ?? throw new Exception();
+		public static IUpdateUserService InitIUpdateUserService(this IServiceProvider sp) => sp.GetService<IUpdateUserService>() ?? throw new Exception();
+        public static IAddCategoryService InitIAddCategoryService(this IServiceProvider sp) => sp.GetService<IAddCategoryService>() ?? throw new Exception();
+        public static IUpdateCategoryService InitIUpdateCategoryService(this IServiceProvider sp) => sp.GetService<IUpdateCategoryService>() ?? throw new Exception();
+        public static IDeleteCategoryService InitIDeleteCategoryService(this IServiceProvider sp) => sp.GetService<IDeleteCategoryService>() ?? throw new Exception();
+        public static IGetUserService InitIGetUserService(this IServiceProvider sp) => sp.GetService<IGetUserService>() ?? throw new Exception();
     }
 }
 

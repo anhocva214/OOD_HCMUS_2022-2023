@@ -45,7 +45,12 @@ namespace financial_management_service
 			builder.Services.AddTransient<IAddTransactionService, AddTransactionService>();
 			builder.Services.AddTransient<IForgotPasswordService, ForgotPasswordService>();
 			builder.Services.AddTransient<ILoginService, LoginService>();
-		}
-	}
+			builder.Services.AddTransient<IUpdateUserService, UpdateUserService>();
+            builder.Services.AddTransient<IAddCategoryService, AddCategoryService>();
+            builder.Services.AddTransient<IUpdateCategoryService, UpdateCategoryService>();
+            builder.Services.AddTransient<IDeleteCategoryService, DeleteCategoryService>();
+            builder.Services.AddTransient<IGetUserService, GetUserService>();
+        }
+    }
 }
 

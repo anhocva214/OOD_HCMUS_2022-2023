@@ -21,7 +21,7 @@ namespace financial_management_service.Core.Entities
         [Column("phone_number")]
         public int? PhoneNumber { get; set; }
         [Column("fullname")]
-        public string? FullNmae { get; set; }
+        public string? FullName { get; set; }
 
         public Users()
         {

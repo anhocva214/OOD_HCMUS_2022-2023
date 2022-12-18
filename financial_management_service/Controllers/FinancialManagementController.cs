@@ -81,6 +81,31 @@ public class FinancialManagementController : ApiControllerBase
     [HttpGet]
     [Route("get-transactions")]
     public async Task<List<SearchTransactionResDto>> GetTransactions(SearchTransactionReqDto dto) => await _sp.InitIGetTransactionsService().Execute(dto);
+
+    [SwaggerOperation("Cập nhật thông tin tài khoản")]
+    [HttpPut]
+    [Route("update-user")]
+    public async Task<LoginResDto> UpdateUser(UpdateUserReqDto dto) => await _sp.InitIUpdateUserService().Execute(dto);
+
+    [SwaggerOperation("Lấy thông tin tài khoản")]
+    [HttpGet]
+    [Route("get-user/{userId}")]
+    public async Task<Users> GetUserInfo(string userId) => await _sp.InitIGetUserService().Execute(userId);
+
+    [SwaggerOperation("Thêm danh mục")]
+    [HttpPost]
+    [Route("add-categories")]
+    public async Task<Categories> AddCategory(AddCategoryReqDto dto) => await _sp.InitIAddCategoryService().Execute(dto);
+
+    [SwaggerOperation("Sửa danh mục")]
+    [HttpPut]
+    [Route("update-categories")]
+    public async Task<Categories> UpdateCategory(UpdateCategoryReqDto dto) => await _sp.InitIUpdateCategoryService().Execute(dto);
+
+    [SwaggerOperation("Xoá danh mục")]
+    [HttpDelete]
+    [Route("delete-categories/{categoryId}")]
+    public async Task DeleteCategory(string categoryId) => await _sp.InitIDeleteCategoryService().Execute(categoryId);
 }
 
 

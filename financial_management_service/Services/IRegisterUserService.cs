@@ -54,7 +54,7 @@ namespace financial_management_service.Services
 			{
 				Email = dto.Email,
 				Password = dto.Password,
-				FullNmae = dto.FullName
+				FullName = dto.FullName
 			};
 		}
 	}

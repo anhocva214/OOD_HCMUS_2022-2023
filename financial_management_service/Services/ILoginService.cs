@@ -41,7 +41,7 @@ namespace financial_management_service.Services
 			{
 				Id = user.Id,
 				Email = user.Email,
-				FullName = user.FullNmae,
+				FullName = user.FullName,
 				Gender = user.Gender,
 				Birthday = user.Birthday,
 				PhoneNumber = user.PhoneNumber
