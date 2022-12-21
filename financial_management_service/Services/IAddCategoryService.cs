@@ -32,7 +32,7 @@ namespace financial_management_service.Services
 
         private void Validate(AddCategoryReqDto dto)
         {
-            If.IsNull(dto.Name).ThrBiz(ErrorCode._400_01, "Tên danh mục không được đê trống.");
+            If.IsNull(dto.Name).ThrBiz(ErrorCode._400_01, "Tên danh mục không được để trống.");
         }
 
         private static Categories InitCategory(AddCategoryReqDto dto)
