@@ -6,6 +6,7 @@ const PATH = {
     register: '/register-user',
     login: '/login',
     forgotPassword: '/forgot-password',
+    getUserById: (id: string) => `/get-user/${id}`
 }
 
 export function register(data: UserRegister){
@@ -29,5 +30,12 @@ export function forgotPassword(data: UserForgotPassword){
         method: 'PUT',
         url: PATH.forgotPassword,
         data
+    })
+}
+
+export function getUserById(id: string){
+    return axiosClient<User>({
+        method: 'GET',
+        url: PATH.getUserById(id),
     })
 }

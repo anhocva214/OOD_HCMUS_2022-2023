@@ -8,6 +8,7 @@ import { ChangeEvent, useState } from "react";
 import { UserLogin } from "src/models/request/user";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import cookie from 'react-cookies'
 
 
 export default function LoginPage() {
@@ -30,10 +31,11 @@ export default function LoginPage() {
             .unwrap()
             .then(value => {
                 message.success("Đăng nhập thành công")
+                cookie.save('userId', value.id, {path: '/', maxAge: 4*60*60})
                 router.push('/')
             })
             .catch(err => {
-                console.log("🚀 ~ file: dang-nhap.tsx:33 ~ onSubmit ~ err", err)
+                console.log("🚀 .~ file: dang-nhap.tsx:33 ~ onSubmit ~ err", err)
                 return err?.response.data.errorMessage && message.error(err?.response.data.errorMessage)
             })
     }
