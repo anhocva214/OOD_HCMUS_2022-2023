@@ -3,14 +3,20 @@
     public class CategoryDto
     {
     }
+    public class CategoryResDto
+    {
+        public string? Name { get; set; }
+        public CategoryResDto()
+        {
+            Name = String.Empty;
+        }
+    }
 
     public class AddCategoryReqDto
     {
-        public string? Id { get; set; }
         public string? Name { get; set; }
         public AddCategoryReqDto()
         {
-            Id =Guid.NewGuid().ToString();
             Name = String.Empty;
         }
     }

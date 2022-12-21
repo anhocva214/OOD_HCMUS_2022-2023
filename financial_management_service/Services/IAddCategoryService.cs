@@ -8,7 +8,7 @@ namespace financial_management_service.Services
 {
     public interface IAddCategoryService
     {
-        Task<Categories> Execute(AddCategoryReqDto dto);
+        Task<CategoryResDto> Execute(AddCategoryReqDto dto);
     }
 
     public class AddCategoryService : BaseService, IAddCategoryService
@@ -17,7 +17,7 @@ namespace financial_management_service.Services
 
         public AddCategoryService(IUnitOfWork uok) => _uok = uok;
 
-        public async Task<Categories> Execute(AddCategoryReqDto dto)
+        public async Task<CategoryResDto> Execute(AddCategoryReqDto dto)
         {
             Validate(dto);
 
@@ -27,7 +27,10 @@ namespace financial_management_service.Services
 
             await _uok.CompleteAsync();
 
-            return category;
+            return new CategoryResDto()
+            {
+                Name= category.Name
+            };
         }
 
         private void Validate(AddCategoryReqDto dto)

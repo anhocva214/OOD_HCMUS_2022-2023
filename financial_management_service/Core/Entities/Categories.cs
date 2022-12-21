@@ -11,5 +11,9 @@ namespace financial_management_service.Core.Entities
         public string? Id { get; set; }
         [Column("name")]
         public string? Name { get; set; }
+        public Categories()
+        {
+            Id = Guid.NewGuid().ToString();
+        }
     }
 }
