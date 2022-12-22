@@ -60,7 +60,7 @@ public class FinancialManagementController : ApiControllerBase
     [SwaggerOperation("Lấy danh sách danh mục")]
     [HttpGet]
     [Route("get-categories")]
-    public async Task<List<CategoryResDto>> GetCategories() => await _sp.InitIGetCategoriesService().Execute();
+    public async Task<List<Categories>> GetCategories() => await _sp.InitIGetCategoriesService().Execute();
 
     [SwaggerOperation("Thêm giao dịch")]
     [HttpPost]
@@ -100,7 +100,7 @@ public class FinancialManagementController : ApiControllerBase
     [SwaggerOperation("Sửa danh mục")]
     [HttpPut]
     [Route("update-categories")]
-    public async Task<Categories> UpdateCategory(UpdateCategoryReqDto dto) => await _sp.InitIUpdateCategoryService().Execute(dto);
+    public async Task<string> UpdateCategory(UpdateCategoryReqDto dto) => await _sp.InitIUpdateCategoryService().Execute(dto);
 
     [SwaggerOperation("Xoá danh mục")]
     [HttpDelete]

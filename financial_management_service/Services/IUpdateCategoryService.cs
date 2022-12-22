@@ -9,7 +9,7 @@ namespace financial_management_service.Services
 {
     public interface IUpdateCategoryService
     {
-        Task<Categories> Execute(UpdateCategoryReqDto dto);
+        Task<string> Execute(UpdateCategoryReqDto dto);
     }
 
     public class UpdateCategoryService : BaseService, IUpdateCategoryService
@@ -18,7 +18,7 @@ namespace financial_management_service.Services
 
         public UpdateCategoryService(IUnitOfWork uok) => _uok = uok;
 
-        public async Task<Categories> Execute(UpdateCategoryReqDto dto)
+        public async Task<string> Execute(UpdateCategoryReqDto dto)
         {
             var category = await Validate(dto);
 
@@ -28,7 +28,7 @@ namespace financial_management_service.Services
 
             await _uok.CompleteAsync();
 
-            return category;
+            return category.Name;
         }
 
         private async Task<Categories> Validate(UpdateCategoryReqDto dto)
