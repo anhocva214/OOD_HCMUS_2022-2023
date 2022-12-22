@@ -43,7 +43,7 @@ namespace financial_management_service.Services
 
 			var transaction = await _uok.Transaction.GetByIdAsync(dto.TransactionId);
 
-			If.IsTrue(transaction == null).ThrBiz(ErrorCode._400_04, "Không tìm thấy dữ giao dịch.");
+			If.IsTrue(transaction == null).ThrBiz(ErrorCode._400_04, "Không tìm thấy dữ liệu giao dịch.");
 
 			If.IsTrue(await _uok.Categories.GetByIdAsync(dto.CategoryId) == null).ThrBiz(ErrorCode._400_05, "Không tìm thấy dữ liệu danh mục.");
 
@@ -58,5 +58,5 @@ namespace financial_management_service.Services
 			transaction.Note = dto.Note;
 			transaction.ModifiedAt = DateTime.Now;
 		}
-	}
+	}	  
 }

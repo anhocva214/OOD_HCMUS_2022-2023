@@ -24,6 +24,7 @@ namespace financial_management_service.Services
 			{
 				categories.Add(new CategoryResDto()
 				{
+					
 					Name= category.Name
 				});
 
