@@ -95,7 +95,7 @@ public class FinancialManagementController : ApiControllerBase
     [SwaggerOperation("Thêm danh mục")]
     [HttpPost]
     [Route("add-categories")]
-    public async Task<CategoryResDto> AddCategory(AddCategoryReqDto dto) => await _sp.InitIAddCategoryService().Execute(dto);
+    public async Task<Categories> AddCategory(AddCategoryReqDto dto) => await _sp.InitIAddCategoryService().Execute(dto);
 
     [SwaggerOperation("Sửa danh mục")]
     [HttpPut]
