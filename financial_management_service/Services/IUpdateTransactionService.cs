@@ -39,7 +39,7 @@ namespace financial_management_service.Services
 
 			If.IsTrue(!dto.Amount.HasValue).ThrBiz(ErrorCode._400_02, "Vui lòng điền số tiền.");
 
-			If.IsTrue(dto.Date == null).ThrBiz(ErrorCode._400_03, "Vui lòng chọn ngày.");
+			If.IsTrue(!dto.Date.HasValue).ThrBiz(ErrorCode._400_03, "Vui lòng chọn ngày.");
 
 			var transaction = await _uok.Transaction.GetByIdAsync(dto.TransactionId);
 
