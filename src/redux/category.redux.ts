@@ -5,7 +5,7 @@ import { UserForgotPassword, UserLogin, UserRegister } from 'src/models/request/
 import { categoryApi } from '@apis/category.api';
 import { Category } from 'src/models/response/category.model';
 
-const CATEGORIES = ["Sức khoẻ", "Chuyển tiền", "Ăn uống", "Mua sắm", "Giáo dục", "Khác"]
+export const CATEGORIES = ["Sức khoẻ", "Chuyển tiền", "Ăn uống", "Mua sắm", "Giáo dục", "Khác", "Thu Nhập"] as const
 
 
 export const getAllCategories = createAsyncThunk(

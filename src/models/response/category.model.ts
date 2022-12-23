@@ -1,8 +1,9 @@
+import { CATEGORIES } from "@redux/category.redux";
 
 
 export class Category{
     id: string;
-    name: string;
+    name: typeof CATEGORIES[number];
     constructor()
     constructor(data?: Category)
     constructor(data?: any){

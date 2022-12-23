@@ -4,6 +4,11 @@ import { useRouter } from 'next/router';
 import React, { ReactNode, useEffect } from 'react';
 import { LogoutOutlined, HomeOutlined, TransactionOutlined, SettingOutlined } from '@ant-design/icons';
 import cookie from 'react-cookies'
+import { useSelector } from 'react-redux';
+import { categorySelector, getAllCategories } from '@redux/category.redux';
+import { useAppDispatch } from '@redux/index';
+import { classifyTransactions, getAllTransactions, transactionSelector } from '@redux/transaction.redux';
+import { getUserById, userSelector } from '@redux/user.redux';
 
 interface IProps {
     children: ReactNode,
@@ -12,10 +17,41 @@ interface IProps {
 
 
 const MainLayout = (props: IProps) => {
+    const dispatch = useAppDispatch()
+    const {categories} = useSelector(categorySelector)
+    const {
+        transactions,
+        loadingTransactions
+    } = useSelector(transactionSelector)
+    const {
+        user
+    } = useSelector(userSelector)
 
     const logout = ()=>{
         cookie.remove('userId')
     }
+
+    useEffect(() => {
+        if (categories.length == 0) {
+            dispatch(getAllCategories())
+        }
+    }, [categories])
+
+    useEffect(()=>{
+        if (user?.id && transactions.length == 0 && categories.length != 0){
+            dispatch(getAllTransactions()).unwrap()
+            .then(date=>{
+                dispatch(classifyTransactions({categoryIncomeId: categories.find(item => item.name == 'Thu Nhập')?.id}))
+            })
+        }
+
+        if (!user?.id){
+            dispatch(getUserById())
+        }
+    },[user, categories])
+
+
+    
 
     return (
         <>

@@ -6,7 +6,7 @@ const PATH = {
     register: '/register-user',
     login: '/login',
     forgotPassword: '/forgot-password',
-    getUserById: (id: string) => `/get-user/${id}`
+    getUserById: (id: string) => `/get-user/${id}`,
 }
 
 function register(data: UserRegister){
