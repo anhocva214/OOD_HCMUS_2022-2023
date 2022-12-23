@@ -34,7 +34,7 @@ export const getAllTransactions = createAsyncThunk(
 
 export const updateTransaction = createAsyncThunk(
     'transaction/update',
-    async (data: TransactionUpdate, { fulfillWithValue, rejectWithValue}) => {
+    async (data: TransactionUpdate, { fulfillWithValue, rejectWithValue }) => {
         try {
             let res = await transactionApi.update(data)
             return fulfillWithValue(res)
@@ -50,6 +50,20 @@ export const removeTransaction = createAsyncThunk(
     async (transactionId: string, { fulfillWithValue, rejectWithValue }) => {
         try {
             await transactionApi.remove(transactionId)
+            return fulfillWithValue(transactionId)
+        }
+        catch (err) {
+            return rejectWithValue(err)
+        }
+    }
+)
+
+export const classifyTransactions = createAsyncThunk(
+    'transaction/classify',
+    async (data: undefined, { fulfillWithValue, rejectWithValue, getState }) => {
+        try {
+            let { category } = getState() as RootState
+            let transactionId = category.categories.find(item => item.name == 'Thu nhập')?.id
             return fulfillWithValue(transactionId)
         }
         catch (err) {
@@ -83,10 +97,7 @@ export const slice = createSlice({
     name: 'transaction',
     initialState,
     reducers: {
-        classifyTransactions: (state, {payload}: PayloadAction<{categoryIncomeId: string}>)=>{
-            state.transactionsIncome = state.transactions.filter(item => item.categoryId == payload.categoryIncomeId)
-            state.transactionsSpending = state.transactions.filter(item => item.categoryId != payload.categoryIncomeId)
-        }
+
     },
     extraReducers: (builder) => {
         builder
@@ -140,6 +151,13 @@ export const slice = createSlice({
             .addCase(removeTransaction.rejected, (state) => {
                 state.loadingRemoveTransaction = false;
             })
+
+        builder
+            .addCase(classifyTransactions.fulfilled, (state, { payload }) => {
+                state.transactionsIncome = state.transactions.filter(item => item.categoryId == payload)
+                state.transactionsSpending = state.transactions.filter(item => item.categoryId != payload)
+            })
+
     },
 })
 
@@ -147,4 +165,4 @@ export const transactionReducer = slice.reducer
 export const transactionSelector = (state: RootState) => state.transaction
 
 
-export const classifyTransactions = slice.actions.classifyTransactions
+// export const classifyTransactions = slice.actions.classifyTransactions
