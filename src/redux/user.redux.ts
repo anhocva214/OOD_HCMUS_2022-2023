@@ -1,9 +1,9 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { RootState } from 'src/redux/reducer'
 import { User } from 'src/models/response/user.model'
-import { userApi } from '@apis/exports';
 import { UserForgotPassword, UserLogin, UserRegister } from 'src/models/request/user';
-
+import { userApi } from '@apis/user.api';
+import cookie from 'react-cookies'
 
 export const registerUser = createAsyncThunk(
     'users/register',
@@ -43,6 +43,21 @@ export const forgotPasswordUser = createAsyncThunk(
         }
     }
 )
+
+export const getUserById = createAsyncThunk(
+    'users/me',
+    async (data: null, { fulfillWithValue, rejectWithValue }) => {
+        try {
+            let userId = cookie.load('userId')
+            let user =  await userApi.getUserById(userId)
+            return fulfillWithValue(user)
+        }
+        catch (err) {
+            return rejectWithValue(err)
+        }
+    }
+)
+
 
 export interface UserState {
     loadingRegisterUser: boolean,
@@ -95,6 +110,15 @@ export const userSlice = createSlice({
             })
             .addCase(forgotPasswordUser.rejected, (state) => {
                 state.loadingForgotPasswordUser = false
+            })
+
+        builder
+            .addCase(getUserById.pending, (state) => {
+            })
+            .addCase(getUserById.fulfilled, (state, {payload}) => {
+                state.user = payload;
+            })
+            .addCase(getUserById.rejected, (state) => {
             })
     },
 })

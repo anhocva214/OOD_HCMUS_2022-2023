@@ -45,7 +45,7 @@ export default function RegisterPage() {
             <section>
                 <article className="left-content">
                     <div className="logo">
-                        <img src="./assets/img/Logo.png" alt="logo" />
+                        <img src="./assets/img/logo.svg" alt="logo" />
                     </div>
                     <div className="sign-up">
                         <form onSubmit={onSubmit} className="sign-up-form">
