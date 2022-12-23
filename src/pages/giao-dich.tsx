@@ -2,7 +2,7 @@ import { userApi } from "@apis/user.api";
 import TransactionForm from "@components/transaction/form";
 import MainLayout from "@layouts/main-layout";
 import { useAppDispatch } from "@redux/index";
-import { createTransaction } from "@redux/transaction.redux";
+import { classifyTransactions, createTransaction } from "@redux/transaction.redux";
 import { ROUTES } from "@utils/routes";
 import { message } from "antd";
 import { GetServerSideProps } from "next";
@@ -43,6 +43,7 @@ export default function TransactionPage({ user }: IProps) {
         dispatch(createTransaction(values)).unwrap()
             .then(data => {
                 message.success("Thành công")
+                dispatch(classifyTransactions())
                 setOpen(false)
             })
             .catch(error => {

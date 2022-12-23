@@ -1,6 +1,6 @@
 import { categorySelector } from "@redux/category.redux";
 import { useAppDispatch } from "@redux/index";
-import { removeTransaction, transactionSelector, updateTransaction } from "@redux/transaction.redux";
+import { classifyTransactions, removeTransaction, transactionSelector, updateTransaction } from "@redux/transaction.redux";
 import { slugify } from "@utils/string";
 import { Button, message, Popconfirm } from "antd";
 import Table, { ColumnsType } from "antd/es/table";
@@ -114,6 +114,7 @@ export default function TransactionTable(props: IProps) {
                         .then(date => {
                             message.success("Thành công")
                             setOpen(false)
+                            dispatch(classifyTransactions())
                         })
                         .catch(error => {
                             message.error("Thất bại")

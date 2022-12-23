@@ -41,7 +41,7 @@ const MainLayout = (props: IProps) => {
         if (user?.id && transactions.length == 0 && categories.length != 0){
             dispatch(getAllTransactions()).unwrap()
             .then(date=>{
-                dispatch(classifyTransactions({categoryIncomeId: categories.find(item => item.name == 'Thu nhập')?.id}))
+                dispatch(classifyTransactions())
             })
         }
 
