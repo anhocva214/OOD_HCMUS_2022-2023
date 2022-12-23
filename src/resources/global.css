@@ -14,3 +14,9 @@ span.ant-modal-close-x {
     justify-content: center;
     align-items: center;
 }
+
+:where(.css-9ntgx0).ant-btn-primary {
+    color: #fff;
+    background-color: #1677ff;
+    box-shadow: 0 2px 0 rgb(5 145 255 / 10%);
+}
