@@ -77,10 +77,10 @@ public class FinancialManagementController : ApiControllerBase
     [Route("delete-transaction/{transactionId}")]
     public async Task DeleteTransaction(string transactionId) => await _sp.InitIDeleteTransactionService().Execute(transactionId);
 
-    [SwaggerOperation("Lấy danh sách giao dịch")]
+    [SwaggerOperation("Lấy danh sách giao dịch theo user")]
     [HttpGet]
-    [Route("get-transactions")]
-    public async Task<List<SearchTransactionResDto>> GetTransactions(SearchTransactionReqDto dto) => await _sp.InitIGetTransactionsService().Execute(dto);
+    [Route("get-transactions/{userId}")]
+    public async Task<List<SearchTransactionResDto>> GetTransactions(string userId) => await _sp.InitIGetTransactionsService().Execute(userId);
 
     [SwaggerOperation("Cập nhật thông tin tài khoản")]
     [HttpPut]

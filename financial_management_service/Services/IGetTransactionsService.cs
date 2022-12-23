@@ -8,7 +8,7 @@ namespace financial_management_service.Services
 {
 	public interface IGetTransactionsService
 	{
-		Task<List<SearchTransactionResDto>> Execute(SearchTransactionReqDto dto);
+		Task<List<SearchTransactionResDto>> Execute(string userId);
 	}
 
 	public class GetTransactionsService : BaseService, IGetTransactionsService
@@ -17,21 +17,43 @@ namespace financial_management_service.Services
 
 		public GetTransactionsService(IUnitOfWork uok) => _uok = uok;
 
-		public async Task<List<SearchTransactionResDto>> Execute(SearchTransactionReqDto dto)
+		public async Task<List<SearchTransactionResDto>> Execute(string userId)
 		{
-			await Validate(dto);
+			await Validate(userId);
 
-			return await _uok.Transaction.GetTransactionsBy(dto);
-		}
+            //return await _uok.Transaction.GetTransactionsBy(dto);
 
-		private async Task Validate(SearchTransactionReqDto dto)
+            return await GetTransactions();
+        }
+
+		private async Task<List<SearchTransactionResDto>> GetTransactions()
 		{
-			If.IsTrue(dto.UserId.IsNullOrEmpty() || !dto.UserId.IsGuid()).ThrBiz(ErrorCode._400_01, "Dữ liệu truyền vào không đúng.");
+            var transactions = new List<SearchTransactionResDto>();
+            var result = await _uok.Transaction.GetListAsync();
+            foreach (var item in result)
+            {
+                transactions.Add(new SearchTransactionResDto()
+                {
+                    Id = item.Id,
+                    UserId = item.UserId,
+                    CategoryId = item.CategoryId,
+                    Amount = item.Amount,
+                    Date = item.Date,
+                    Note = item.Note
+                });
+            }
 
-			If.IsTrue(await _uok.Users.GetByIdAsync(dto.UserId) == null).ThrBiz(ErrorCode._400_02, "Không tìm thấy tài khoản đăng nhập.");
+            return transactions;
+        }
 
-			if (dto.FromDate != null && dto.ToDate != null)
-				If.IsTrue(dto.FromDate > dto.ToDate).ThrBiz(ErrorCode._400_04, "Ngày bắt đầu phải nhỏ hoặc bằng ngày kết thúc.");
+        private async Task Validate(string userId)
+		{
+			If.IsTrue(userId.IsNullOrEmpty() || !userId.IsGuid()).ThrBiz(ErrorCode._400_01, "Dữ liệu truyền vào không đúng.");
+
+			If.IsTrue(await _uok.Users.GetByIdAsync(userId) == null).ThrBiz(ErrorCode._400_02, "Không tìm thấy tài khoản đăng nhập.");
+
+			//if (dto.FromDate != null && dto.ToDate != null)
+			//	If.IsTrue(dto.FromDate > dto.ToDate).ThrBiz(ErrorCode._400_04, "Ngày bắt đầu phải nhỏ hoặc bằng ngày kết thúc.");
 		}
 	}
 }
