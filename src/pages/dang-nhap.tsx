@@ -48,7 +48,7 @@ export default function LoginPage() {
             <section>
                 <article className="left-content">
                     <div className="logo">
-                        <img src="./assets/img/Logo.png" alt="logo" />
+                        <img src="./assets/img/logo.svg" alt="logo" />
                     </div>
                     <div className="sign-in">
                         <form onSubmit={onSubmit} className="sign-in-form">

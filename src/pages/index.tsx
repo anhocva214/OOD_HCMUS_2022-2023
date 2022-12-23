@@ -8,9 +8,10 @@ import { useAppDispatch } from '@redux/index'
 import MainLayout from '@layouts/main-layout'
 import { ROUTES } from '@utils/routes'
 import { GetServerSideProps } from 'next'
-import { userApi } from '@apis/exports'
 import { User } from 'src/models/response/user.model'
-import { Progress } from 'antd'
+import { Progress, Skeleton } from 'antd'
+import { userApi } from '@apis/user.api'
+import { categorySelector, getAllCategories } from '@redux/category.redux'
 
 
 export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
@@ -32,7 +33,16 @@ interface IProps {
 export default function Home({ user }: IProps) {
   const dispatch = useAppDispatch()
 
-  console.log("user: ", user)
+  const {
+    loadingAllCategories,
+    categories
+  } = useSelector(categorySelector)
+
+  useEffect(()=>{
+    if (categories.length == 0){
+      dispatch(getAllCategories())
+    }
+  },[categories])
 
   return (
     <MainLayout pageActive={ROUTES.dashboard}>
@@ -112,126 +122,135 @@ export default function Home({ user }: IProps) {
         </article>
         <div className="right-wrap">
           <div className="grid grid-cols-2 w-full px-8 gap-3">
-
-            <div className="col-span-1">
-              <div className='bg-[#f8f8f8] p-3 rounded-lg flex flex-col gap-3'>
-                <span className='w-10 h-10 block flex items-center justify-center text-[#00C3FE] text-lg bg-white shadow-[0px_2px_5px_#154f932b] rounded-full'>
-                  <i className="fa-solid fa-heart-pulse"></i>
-                </span>
-                <h3 className='mb-0'>
-                  Sức khoẻ
-                </h3>
-                <div className='flex items-center gap-2'>
-                  <span className='text-[#ffb300]'>
-                    <i className="fa-solid fa-coins"></i>
-                  </span>
-                  <span className='text-slate-500 text-sm'>{(100000).toLocaleString()}đ</span>
-                </div>
-                <div>
-                  <Progress percent={50} showInfo={false} strokeColor="#363A3F" trailColor='#DFE4F3' style={{ margin: 0 }} />
-                </div>
+            {loadingAllCategories && (
+              <div className="col-span-full">
+                <Skeleton active />
               </div>
-            </div>
+            )}
 
-            <div className="col-span-1">
-              <div className='bg-[#f8f8f8] p-3 rounded-lg flex flex-col gap-3'>
-                <span className='w-10 h-10 block flex items-center justify-center text-[#6065D7] text-lg bg-white shadow-[0px_2px_5px_#154f932b] rounded-full'>
-                  <i className="fa-solid fa-arrow-up-arrow-down"></i>
-                </span>
-                <h3 className='mb-0'>
-                  Chuyển tiền
-                </h3>
-                <div className='flex items-center gap-2'>
-                  <span className='text-[#ffb300]'>
-                    <i className="fa-solid fa-coins"></i>
-                  </span>
-                  <span className='text-slate-500 text-sm'>{(100000).toLocaleString()}đ</span>
+            {!loadingAllCategories && categories.length > 0 && (
+              <>
+                <div className="col-span-1">
+                  <div className='bg-[#f8f8f8] p-3 rounded-lg flex flex-col gap-3'>
+                    <span className='w-10 h-10 block flex items-center justify-center text-[#00C3FE] text-lg bg-white shadow-[0px_2px_5px_#154f932b] rounded-full'>
+                      <i className="fa-solid fa-heart-pulse"></i>
+                    </span>
+                    <h3 className='mb-0'>
+                      Sức khoẻ
+                    </h3>
+                    <div className='flex items-center gap-2'>
+                      <span className='text-[#ffb300]'>
+                        <i className="fa-solid fa-coins"></i>
+                      </span>
+                      <span className='text-slate-500 text-sm'>{(100000).toLocaleString()}đ</span>
+                    </div>
+                    <div>
+                      <Progress percent={50} showInfo={false} strokeColor="#363A3F" trailColor='#DFE4F3' style={{ margin: 0 }} />
+                    </div>
+                  </div>
                 </div>
-                <div>
-                  <Progress percent={50} showInfo={false} strokeColor="#363A3F" trailColor='#DFE4F3' style={{ margin: 0 }} />
-                </div>
-              </div>
-            </div>
 
-            <div className="col-span-1">
-              <div className='bg-[#f8f8f8] p-3 rounded-lg flex flex-col gap-3'>
-                <span className='w-10 h-10 block flex items-center justify-center text-[#FF985D] text-lg bg-white shadow-[0px_2px_5px_#154f932b] rounded-full'>
-                  <i className="fa-sharp fa-solid fa-burger-soda"></i>
-                </span>
-                <h3 className='mb-0'>
-                  Ăn uống
-                </h3>
-                <div className='flex items-center gap-2'>
-                  <span className='text-[#ffb300]'>
-                    <i className="fa-solid fa-coins"></i>
-                  </span>
-                  <span className='text-slate-500 text-sm'>{(100000).toLocaleString()}đ</span>
+                <div className="col-span-1">
+                  <div className='bg-[#f8f8f8] p-3 rounded-lg flex flex-col gap-3'>
+                    <span className='w-10 h-10 block flex items-center justify-center text-[#6065D7] text-lg bg-white shadow-[0px_2px_5px_#154f932b] rounded-full'>
+                      <i className="fa-solid fa-arrow-up-arrow-down"></i>
+                    </span>
+                    <h3 className='mb-0'>
+                      Chuyển tiền
+                    </h3>
+                    <div className='flex items-center gap-2'>
+                      <span className='text-[#ffb300]'>
+                        <i className="fa-solid fa-coins"></i>
+                      </span>
+                      <span className='text-slate-500 text-sm'>{(100000).toLocaleString()}đ</span>
+                    </div>
+                    <div>
+                      <Progress percent={50} showInfo={false} strokeColor="#363A3F" trailColor='#DFE4F3' style={{ margin: 0 }} />
+                    </div>
+                  </div>
                 </div>
-                <div>
-                  <Progress percent={50} showInfo={false} strokeColor="#363A3F" trailColor='#DFE4F3' style={{ margin: 0 }} />
-                </div>
-              </div>
-            </div>
 
-            <div className="col-span-1">
-              <div className='bg-[#f8f8f8] p-3 rounded-lg flex flex-col gap-3'>
-                <span className='w-10 h-10 block flex items-center justify-center text-[#F4719A] text-lg bg-white shadow-[0px_2px_5px_#154f932b] rounded-full'>
-                  <i className="fa-solid fa-bags-shopping"></i>
-                </span>
-                <h3 className='mb-0'>
-                  Mua sắm
-                </h3>
-                <div className='flex items-center gap-2'>
-                  <span className='text-[#ffb300]'>
-                    <i className="fa-solid fa-coins"></i>
-                  </span>
-                  <span className='text-slate-500 text-sm'>{(100000).toLocaleString()}đ</span>
+                <div className="col-span-1">
+                  <div className='bg-[#f8f8f8] p-3 rounded-lg flex flex-col gap-3'>
+                    <span className='w-10 h-10 block flex items-center justify-center text-[#FF985D] text-lg bg-white shadow-[0px_2px_5px_#154f932b] rounded-full'>
+                      <i className="fa-sharp fa-solid fa-burger-soda"></i>
+                    </span>
+                    <h3 className='mb-0'>
+                      Ăn uống
+                    </h3>
+                    <div className='flex items-center gap-2'>
+                      <span className='text-[#ffb300]'>
+                        <i className="fa-solid fa-coins"></i>
+                      </span>
+                      <span className='text-slate-500 text-sm'>{(100000).toLocaleString()}đ</span>
+                    </div>
+                    <div>
+                      <Progress percent={50} showInfo={false} strokeColor="#363A3F" trailColor='#DFE4F3' style={{ margin: 0 }} />
+                    </div>
+                  </div>
                 </div>
-                <div>
-                  <Progress percent={50} showInfo={false} strokeColor="#363A3F" trailColor='#DFE4F3' style={{ margin: 0 }} />
-                </div>
-              </div>
-            </div>
 
-            <div className="col-span-1">
-              <div className='bg-[#f8f8f8] p-3 rounded-lg flex flex-col gap-3'>
-                <span className='w-10 h-10 block flex items-center justify-center text-[#29A073] text-lg bg-white shadow-[0px_2px_5px_#154f932b] rounded-full'>
-                  <i className="fa-solid fa-graduation-cap"></i>
-                </span>
-                <h3 className='mb-0'>
-                  Giáo dục
-                </h3>
-                <div className='flex items-center gap-2'>
-                  <span className='text-[#ffb300]'>
-                    <i className="fa-solid fa-coins"></i>
-                  </span>
-                  <span className='text-slate-500 text-sm'>{(100000).toLocaleString()}đ</span>
+                <div className="col-span-1">
+                  <div className='bg-[#f8f8f8] p-3 rounded-lg flex flex-col gap-3'>
+                    <span className='w-10 h-10 block flex items-center justify-center text-[#F4719A] text-lg bg-white shadow-[0px_2px_5px_#154f932b] rounded-full'>
+                      <i className="fa-solid fa-bags-shopping"></i>
+                    </span>
+                    <h3 className='mb-0'>
+                      Mua sắm
+                    </h3>
+                    <div className='flex items-center gap-2'>
+                      <span className='text-[#ffb300]'>
+                        <i className="fa-solid fa-coins"></i>
+                      </span>
+                      <span className='text-slate-500 text-sm'>{(100000).toLocaleString()}đ</span>
+                    </div>
+                    <div>
+                      <Progress percent={50} showInfo={false} strokeColor="#363A3F" trailColor='#DFE4F3' style={{ margin: 0 }} />
+                    </div>
+                  </div>
                 </div>
-                <div>
-                  <Progress percent={50} showInfo={false} strokeColor="#363A3F" trailColor='#DFE4F3' style={{ margin: 0 }} />
-                </div>
-              </div>
-            </div>
 
-            <div className="col-span-1">
-              <div className='bg-[#f8f8f8] p-3 rounded-lg flex flex-col gap-3'>
-                <span className='w-10 h-10 block flex items-center justify-center text-[#454A55] text-lg bg-white shadow-[0px_2px_5px_#154f932b] rounded-full'>
-                  <i className="fa-solid fa-layer-plus"></i>
-                </span>
-                <h3 className='mb-0'>
-                  Khác
-                </h3>
-                <div className='flex items-center gap-2'>
-                  <span className='text-[#ffb300]'>
-                    <i className="fa-solid fa-coins"></i>
-                  </span>
-                  <span className='text-slate-500 text-sm'>{(100000).toLocaleString()}đ</span>
+                <div className="col-span-1">
+                  <div className='bg-[#f8f8f8] p-3 rounded-lg flex flex-col gap-3'>
+                    <span className='w-10 h-10 block flex items-center justify-center text-[#29A073] text-lg bg-white shadow-[0px_2px_5px_#154f932b] rounded-full'>
+                      <i className="fa-solid fa-graduation-cap"></i>
+                    </span>
+                    <h3 className='mb-0'>
+                      Giáo dục
+                    </h3>
+                    <div className='flex items-center gap-2'>
+                      <span className='text-[#ffb300]'>
+                        <i className="fa-solid fa-coins"></i>
+                      </span>
+                      <span className='text-slate-500 text-sm'>{(100000).toLocaleString()}đ</span>
+                    </div>
+                    <div>
+                      <Progress percent={50} showInfo={false} strokeColor="#363A3F" trailColor='#DFE4F3' style={{ margin: 0 }} />
+                    </div>
+                  </div>
                 </div>
-                <div>
-                  <Progress percent={50} showInfo={false} strokeColor="#363A3F" trailColor='#DFE4F3' style={{ margin: 0 }} />
+
+                <div className="col-span-1">
+                  <div className='bg-[#f8f8f8] p-3 rounded-lg flex flex-col gap-3'>
+                    <span className='w-10 h-10 block flex items-center justify-center text-[#454A55] text-lg bg-white shadow-[0px_2px_5px_#154f932b] rounded-full'>
+                      <i className="fa-solid fa-layer-plus"></i>
+                    </span>
+                    <h3 className='mb-0'>
+                      Khác
+                    </h3>
+                    <div className='flex items-center gap-2'>
+                      <span className='text-[#ffb300]'>
+                        <i className="fa-solid fa-coins"></i>
+                      </span>
+                      <span className='text-slate-500 text-sm'>{(100000).toLocaleString()}đ</span>
+                    </div>
+                    <div>
+                      <Progress percent={50} showInfo={false} strokeColor="#363A3F" trailColor='#DFE4F3' style={{ margin: 0 }} />
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
+              </>
+            )}
 
           </div>
 

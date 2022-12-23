@@ -1,8 +1,8 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { RootState } from 'src/redux/reducer'
 import { User } from 'src/models/response/user.model'
-import { userApi } from '@apis/exports';
 import { UserForgotPassword, UserLogin, UserRegister } from 'src/models/request/user';
+import { userApi } from '@apis/user.api';
 
 
 export const registerUser = createAsyncThunk(
