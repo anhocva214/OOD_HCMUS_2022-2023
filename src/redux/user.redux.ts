@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { RootState } from 'src/redux/reducer'
-import { User } from 'src/models/response/user.model'
+import { User, UserUpdate } from 'src/models/response/user.model'
 import { UserForgotPassword, UserLogin, UserRegister } from 'src/models/request/user';
 import { userApi } from '@apis/user.api';
 import cookie from 'react-cookies'
@@ -49,7 +49,20 @@ export const getUserById = createAsyncThunk(
     async (data: null, { fulfillWithValue, rejectWithValue }) => {
         try {
             let userId = cookie.load('userId')
-            let user =  await userApi.getUserById(userId)
+            let user = await userApi.getUserById(userId)
+            return fulfillWithValue(user)
+        }
+        catch (err) {
+            return rejectWithValue(err)
+        }
+    }
+)
+
+export const updateUser = createAsyncThunk(
+    'users/update',
+    async (data: UserUpdate, { fulfillWithValue, rejectWithValue }) => {
+        try {
+            let user = await userApi.updateUser(data)
             return fulfillWithValue(user)
         }
         catch (err) {
@@ -59,18 +72,21 @@ export const getUserById = createAsyncThunk(
 )
 
 
+
 export interface UserState {
     loadingRegisterUser: boolean,
     loadingLoginUser: boolean,
     user: User,
-    loadingForgotPasswordUser: boolean
+    loadingForgotPasswordUser: boolean,
+    loadingUpdateUser: boolean,
 }
 
 export const initialState: UserState = {
     loadingRegisterUser: false,
     loadingLoginUser: false,
     user: null,
-    loadingForgotPasswordUser: false
+    loadingForgotPasswordUser: false,
+    loadingUpdateUser: false
 }
 
 export const userSlice = createSlice({
@@ -115,10 +131,22 @@ export const userSlice = createSlice({
         builder
             .addCase(getUserById.pending, (state) => {
             })
-            .addCase(getUserById.fulfilled, (state, {payload}) => {
+            .addCase(getUserById.fulfilled, (state, { payload }) => {
                 state.user = payload;
             })
             .addCase(getUserById.rejected, (state) => {
+            })
+
+        builder
+            .addCase(updateUser.pending, (state) => {
+                state.loadingUpdateUser = true;
+            })
+            .addCase(updateUser.fulfilled, (state, { payload }) => {
+                state.loadingUpdateUser = false;
+                state.user = payload;
+            })
+            .addCase(updateUser.rejected, (state) => {
+                state.loadingUpdateUser = false;
             })
     },
 })

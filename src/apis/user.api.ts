@@ -1,5 +1,5 @@
 import { UserForgotPassword, UserLogin, UserRegister } from 'src/models/request/user'
-import { User } from 'src/models/response/user.model'
+import { User, UserUpdate } from 'src/models/response/user.model'
 import { axiosClient } from './axios-client'
 
 const PATH = {
@@ -7,6 +7,7 @@ const PATH = {
     login: '/login',
     forgotPassword: '/forgot-password',
     getUserById: (id: string) => `/get-user/${id}`,
+    update: 'update-user'
 }
 
 function register(data: UserRegister){
@@ -40,9 +41,18 @@ function getUserById(id: string){
     })
 }
 
+function updateUser(data: UserUpdate){
+    return axiosClient<User>({
+        method: 'PUT',
+        url: PATH.update,
+        data
+    })
+}
+
 export const userApi = {
     register,
     login,
     forgotPassword,
-    getUserById
+    getUserById,
+    updateUser
 }
