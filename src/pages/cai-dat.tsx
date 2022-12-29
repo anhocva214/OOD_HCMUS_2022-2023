@@ -51,7 +51,7 @@ export default function SettingPage({
 
         dispatch(updateUser(new UserUpdate({ ...form, passwordComfirm: confirmNewPassword }))).unwrap()
             .then(data => {
-                setForm({...user, password: confirmNewPassword})
+                setForm({...data, password: confirmNewPassword})
                 setConfirmNewPassword(confirmNewPassword)
                 message.success("Thành công")
             })
